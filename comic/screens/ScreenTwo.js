@@ -1,0 +1,101 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { PanResponder, Animated } from 'react-native'
+import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
+import { FullScreenWrapper, RowWrapper, VerticalHalfLeft, VerticalHalfRight } from './components/ScreenStyles.styles'
+
+export default class ScreenOne extends Component {
+  static propTypes = {
+    // tile: PropTypes.string
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      tapCount: 0,
+      xPositionTileTwo: new Animated.Value(-150)
+    }
+  }
+
+  // remove and put into shared NavigationOptions
+  static navigationOptions = {
+    header: null
+ }
+
+  panResponder = {}
+
+  componentWillMount() {
+    this.panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: this.handleStartShouldSetPanResponder,
+      onPanResponderGrant: this.handlePanResponderGrant
+    })
+  }
+
+  handleStartShouldSetPanResponder = e => {
+    return true
+  }
+
+  handlePanResponderGrant = e => {
+    const currentScreen = this.props.navigation.state.routeName
+
+    const { navigate } = this.props.navigation
+    if (this.state.tapCount < 3) {
+      return this.setState({tapCount: ++this.state.tapCount})
+    }
+      return navigate(this.props.screenProps[currentScreen].nextScreen)
+    }
+
+  displaySecondTile = currentProps => {
+    return (
+      <AnimatedImageAndTextTile 
+        tileAnimation='fadeInLeftBig'
+        beginTransitionAnimation={this.beginTransitionTileTwo}
+        imageUri={currentProps.tileTwo.backgroundImageUri}
+        imageWidth={600}
+        xPosition={this.state.xPositionTileTwo}
+        tapCount={this.state.tapCount}
+        tapCountNumber={3}
+        text={currentProps.tileTwo.text}
+        position='absolute'
+        bottom={0}
+      />
+    )
+  }
+
+  beginTransitionTileTwo = endState => {
+    if (endState.finished) {
+      Animated.timing(this.state.xPositionTileTwo, {
+        toValue: 140,
+        duration: 3000,
+      }).start()
+    }
+  }
+
+  render() {
+    const currentScreen = this.props.navigation.state.routeName
+    const currentProps = this.props.screenProps[currentScreen]
+
+    return (
+      <FullScreenWrapper {...this.panResponder.panHandlers}>
+        <RowWrapper>
+          <VerticalHalfLeft>
+            <AnimatedImageAndTextTile 
+              tileAnimation='fadeInLeftBig'
+              delay={200}
+              imageUri={currentProps.tileOne.backgroundImageUri}
+              tapCount={this.state.tapCount}
+              tapCountNumber={1}
+              text={currentProps.tileOne.text}
+              position='absolute'
+              bottom={0}
+            />
+            </VerticalHalfLeft>
+          <VerticalHalfRight>
+            {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
+          </VerticalHalfRight>
+        </RowWrapper>
+      </FullScreenWrapper>
+    )
+  }
+}
