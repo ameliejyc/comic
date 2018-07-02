@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: "oldrichium"
   }
 })

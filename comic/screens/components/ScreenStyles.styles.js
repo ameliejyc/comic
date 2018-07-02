@@ -74,50 +74,27 @@ export const BottomRightThird = styled.View`
 `
 
 // individual component styles
-export const SpeechBubbleContainer = styled.View`
-  font-size: 17px;
-  position: relative;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  padding: 30px;
-
-  :before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border: 20px solid transparent;
-    border-top-color: rgba(255, 255, 255, 0.7);
-    border-bottom: 0;
-    margin-left: -20px;
-	  margin-bottom: -20px;
-  }
+export const SpeechBubbleSquare = styled.View`
+  // display: flex;
+  // width: 50%;
+  // height: 50%;
+  // padding: 10px;
+  // justify-content: center;
+  // background-color: 'pink';
+  // border-radius: 20px;
 `
 
-export const ThoughtBubbleContainer = styled.View`
-  display: flex;
-  flex-direction: column;
-  font-size: 17px;
-  background: rgba(165, 155, 45, 0.7);
-  border-radius: 25px 25px 25px 0;
-  height: 380px;
-  width: 460px;
-  padding: 30px;
-
-  :before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 320px;
-    width: 0;
-    height: 0;
-    border: 60px solid transparent;
-    border-right-color: rgba(255, 255, 255, 0.7);
-    border-left: 0;
-    border-bottom: 0;
-    margin-left: -60px;
-  }
+export const SpeechBubbleTriangle = styled.View`
+  // position: 'absolute';
+  // left: -26px;
+  // top: 26px;
+  // width: 0;
+  // height: 0;
+  // border-top-color: 'transparent';
+  // border-top-width: 13px;
+  // border-right-width: 26px;
+  // border-right-color: 'red';
+  // border-bottom-width: 13px;
+  // border-bottom-color: 'transparent'
 `
 
