@@ -120,16 +120,32 @@ const ComicBook = createStackNavigator({
 
 export default class App extends Component {
 
-  componentDidMount() {
-    Font.loadAsync({
-      'oldrichium': require('./assets/fonts/Oldrichium.otf'),
-      'oldrichiumBold': require('./assets/fonts/OldrichiumBold.otf')
-    })
+  state = {
+    assetsLoaded: false
+  }
+
+  async componentDidMount() {
+    try {
+      await Font.loadAsync({
+        'oldrichium': require('./assets/fonts/Oldrichium.otf'),
+        'oldrichiumBold': require('./assets/fonts/OldrichiumBold.otf')
+      })
+    } catch(e) {
+        console.warn('There was an error loading assets. Reload the app to try again.')
+        console.log(e.message)
+    } finally {
+        this.setState({ assetsLoaded: true })
+    }
   }
 
   render() {
-    return (
-      <ComicBook screenProps={screenProps} />
-    )
+    if (this.state.assetsLoaded) {
+      return (
+        <ComicBook screenProps={screenProps} />
+      )
+    } else {
+      // return loading screen here in future
+      return null
+    }
   }
 }
