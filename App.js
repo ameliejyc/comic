@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from 'react-navigation'
+import { Font } from 'expo'
 import AnimationScreen from './AnimationScreen'
 import TodoScreen from './TodoScreen'
 import GestureContainer from './GestureContainer'
@@ -79,9 +80,12 @@ const screenProps = {
   },
   // six is ScreenTen (currently...)
   Six: {
-    backgroundImageUri: require('./assets/will-screen5-tile1.jpg'),
-    text: "This is for you, Night Zookeeper",
-    nextScreen: 'Home',
+    tileOne: {
+      backgroundImageUri: require('./assets/will-screen5-tile1.jpg'),
+      textFirstSpeech: "This is for you, Night Zookeeper.",
+      textSecondSpeech: "This is for you, Night Zookeeper.",
+    },
+  nextScreen: 'One'
   }
 }
 
@@ -115,6 +119,14 @@ const ComicBook = createStackNavigator({
 )
 
 export default class App extends Component {
+
+  componentDidMount() {
+    Font.loadAsync({
+      'oldrichium': require('./assets/fonts/Oldrichium.otf'),
+      'oldrichiumBold': require('./assets/fonts/OldrichiumBold.otf')
+    })
+  }
+
   render() {
     return (
       <ComicBook screenProps={screenProps} />
