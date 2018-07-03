@@ -55,7 +55,6 @@ export default class ScreenThree extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={3}
         text={currentProps.tileTwo.text}
-        position='absolute' 
         bottom={0}
       />
     )
@@ -72,7 +71,6 @@ export default class ScreenThree extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={5}
         text={currentProps.tileThree.text}
-        position='absolute' 
         bottom={0}
       />
     )
@@ -124,7 +122,6 @@ export default class ScreenThree extends Component {
             tapCount={this.state.tapCount}
             tapCountNumber={1}
             text={currentProps.tileOne.text}
-            position='absolute' 
             top={0}
           />
           </VerticalHalfLeft>

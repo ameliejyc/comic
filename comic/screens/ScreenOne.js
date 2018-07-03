@@ -58,7 +58,6 @@ export default class ScreenOne extends Component {
           tapCount={this.state.tapCount}
           tapCountNumber={1}
           text={currentProps.tileOne.text}
-          position='absolute'
           bottom={0}
         />
       </FullScreenWrapper>

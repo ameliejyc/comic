@@ -6,15 +6,14 @@ import * as Animatable from 'react-native-animatable'
 export default class TextBox extends Component {
   static propTypes = {
     text: PropTypes.string,
-    position: PropTypes.string,
     top: PropTypes.number,
     bottom: PropTypes.number,
   }
 
   render() {
-    const { text, position, top, bottom } = this.props
+    const { text, top, bottom } = this.props
     return (
-      <Animatable.View animation="fadeInLeftBig" style={[styles.textContainer, {position, top, bottom}]}>
+      <Animatable.View animation="fadeInLeftBig" style={[styles.textContainer, { top, bottom }]}>
         <Text style={styles.text}>{text}</Text>
       </Animatable.View>
     )
@@ -23,6 +22,7 @@ export default class TextBox extends Component {
 
 const styles = StyleSheet.create({
   textContainer: {
+    position: 'absolute',
     backgroundColor: '#56227f',
     paddingVertical: 10,
     paddingHorizontal: 15,

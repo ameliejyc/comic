@@ -48,7 +48,6 @@ export default class ScreenOne extends Component {
       return navigate(this.props.screenProps[currentScreen].nextScreen)
   }
 
-  // render tiles
   displaySecondTile = currentProps => {
     return 
   }
@@ -59,14 +58,14 @@ export default class ScreenOne extends Component {
     const currentProps = this.props.screenProps[currentScreen]
 
     return (
-      <FullScreenWrapper            {...this.panResponder.panHandlers}>
+      <FullScreenWrapper {...this.panResponder.panHandlers}>
         <AnimatedImageAndTextTile 
           tileAnimation='fadeInLeftBig'
           delay={500}
           imageUri={require('../../assets/flying-screen1.gif')}
           tapCount={this.state.tapCount}
           tapCountNumber={1}
-          text="Welcome to the Night Zoo, Baby"
+          text="I am screen number..."
           position='absolute'
           bottom={0}
         />

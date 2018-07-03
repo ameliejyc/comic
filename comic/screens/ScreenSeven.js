@@ -70,7 +70,6 @@ export default class ScreenSeven extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={4}
         text="imagination itself!"
-        position='absolute'
         bottom={0}
       />
     )
@@ -101,7 +100,6 @@ export default class ScreenSeven extends Component {
             tapCount={this.state.tapCount}
             tapCountNumber={1}
             text={currentProps.tileOne.text}
-            position='absolute'
             bottom={0}
           />
           </HorizontalHalfTop>

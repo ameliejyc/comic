@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { PanResponder, Animated } from 'react-native'
+import {
+  PanResponder
+} from 'react-native'
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
-import { FullScreenWrapper, RowWrapper, VerticalHalfLeft, VerticalHalfRight } from './components/ScreenStyles.styles'
+import { FullScreenWrapper, ColumnWrapper, RowWrapper, TopLeftQuarter, BottomLeftQuarter,  TopRightQuarter, BottomRightQuarter } from './components/ScreenStyles.styles'
 
 export default class ScreenOne extends Component {
   static propTypes = {
@@ -13,8 +15,7 @@ export default class ScreenOne extends Component {
     super(props)
 
     this.state = {
-      tapCount: 0,
-      xPositionTileTwo: new Animated.Value(-150)
+      tapCount: 0
     }
   }
 
@@ -23,6 +24,7 @@ export default class ScreenOne extends Component {
     header: null
  }
 
+  // set up panResponder
   panResponder = {}
 
   componentWillMount() {
@@ -39,59 +41,57 @@ export default class ScreenOne extends Component {
   handlePanResponderGrant = e => {
     const currentScreen = this.props.navigation.state.routeName
 
-    const { navigate } = this.props.navigation
-    if (this.state.tapCount < 3) {
+    const { navigate} = this.props.navigation
+    if (this.state.tapCount < 7) {
       return this.setState({tapCount: ++this.state.tapCount})
     }
       return navigate(this.props.screenProps[currentScreen].nextScreen)
-    }
-
-  displaySecondTile = currentProps => {
-    return (
-      <AnimatedImageAndTextTile 
-        tileAnimation='fadeInLeftBig'
-        beginTransitionAnimation={this.beginTransitionTileTwo}
-        imageUri={currentProps.tileTwo.backgroundImageUri}
-        imageWidth={600}
-        xPosition={this.state.xPositionTileTwo}
-        tapCount={this.state.tapCount}
-        tapCountNumber={3}
-        text={currentProps.tileTwo.text}
-        bottom={0}
-      />
-    )
   }
 
-  beginTransitionTileTwo = endState => {
-    if (endState.finished) {
-      Animated.timing(this.state.xPositionTileTwo, {
-        toValue: 140,
-        duration: 3000,
-      }).start()
-    }
+  displaySecondTile = currentProps => {
+    return 
+  }
+
+  displayThirdTile = currentProps => {
+    return 
+  }
+
+  displayFourthTile = currentProps => {
+    return 
   }
 
   render() {
     const currentScreen = this.props.navigation.state.routeName
+
     const currentProps = this.props.screenProps[currentScreen]
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-        <RowWrapper>
-          <VerticalHalfLeft>
+      <RowWrapper>
+        <ColumnWrapper>
+          <TopLeftQuarter>
             <AnimatedImageAndTextTile 
               tileAnimation='fadeInLeftBig'
-              delay={200}
-              imageUri={currentProps.tileOne.backgroundImageUri}
+              delay={500}
+              imageUri={require('../../assets/flying-screen1.gif')}
               tapCount={this.state.tapCount}
               tapCountNumber={1}
-              text={currentProps.tileOne.text}
+              text="I am ScreenFour"
               bottom={0}
             />
-            </VerticalHalfLeft>
-          <VerticalHalfRight>
-            {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
-          </VerticalHalfRight>
+            </TopLeftQuarter>
+            <BottomLeftQuarter>
+              {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
+            </BottomLeftQuarter>
+          </ColumnWrapper>
+          <ColumnWrapper>
+            <TopRightQuarter>
+              {this.state.tapCount >= 4 && this.displayThirdTile(currentProps)}
+            </TopRightQuarter>
+            <BottomRightQuarter>
+              {this.state.tapCount >= 6 && this.displayFourthTile(currentProps)}
+            </BottomRightQuarter>
+          </ColumnWrapper>
         </RowWrapper>
       </FullScreenWrapper>
     )

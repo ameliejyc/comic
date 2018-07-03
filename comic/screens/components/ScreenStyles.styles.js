@@ -48,8 +48,28 @@ export const HorizontalHalfBottom = styled.View`
   ${commonStyles};
 `
 
+export const LeftThird = styled.View`
+  margin-right: 10px;
+  ${commonStyles};
+`
+
+export const MiddleThird = styled.View`
+  margin: 0 10px;
+  ${commonStyles};
+`
+
+export const RightThird = styled.View`
+  margin-left: 10px;
+  ${commonStyles};
+`
+
 export const TopRightQuarter = styled.View`
   margin: 0 0 10px 10px;
+  ${commonStyles};
+`
+
+export const TopLeftQuarter = styled.View`
+  margin: 0 10px 10px 0;
   ${commonStyles};
 `
 
@@ -58,18 +78,38 @@ export const BottomRightQuarter = styled.View`
   ${commonStyles};
 `
 
+export const BottomLeftQuarter = styled.View`
+  margin: 10px 10px 0 0;
+  ${commonStyles};
+`
+
 export const BottomLeftThird = styled.View`
-  margin-right: 5px;
+  margin: 10px 10px 0 0;
   ${commonStyles};
 `
 
 export const BottomMiddleThird = styled.View`
-  margin: 0 5px;
+  margin: 10px 10px 0;
   ${commonStyles};
 `
 
 export const BottomRightThird = styled.View`
-  margin-left: 5px;
+  margin: 10px 0 0 10px;
+  ${commonStyles};
+`
+
+export const TopLeftThird = styled.View`
+  margin: 0 10px 10px 0;
+  ${commonStyles};
+`
+
+export const TopMiddleThird = styled.View`
+  margin: 0 10px 10px;
+  ${commonStyles};
+`
+
+export const TopRightThird = styled.View`
+  margin: 0 0 10px 10px;
   ${commonStyles};
 `
 

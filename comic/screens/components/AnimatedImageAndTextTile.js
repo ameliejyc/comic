@@ -18,7 +18,6 @@ export default class AnimatedImageAndTextTile extends Component {
     tapCount: PropTypes.number,
     tapCountNumber: PropTypes.number,
     text: PropTypes.string,
-    position: PropTypes.string,
     top: PropTypes.number,
     bottom: PropTypes.number
   }
@@ -35,7 +34,6 @@ export default class AnimatedImageAndTextTile extends Component {
       tapCount = 0,
       tapCountNumber = 0,
       text = null,
-      position = null,
       top = null,
       bottom = null,
       imageHeight = null,
@@ -60,7 +58,6 @@ export default class AnimatedImageAndTextTile extends Component {
           text && (
             <TextBox
               text={text}
-              position={position}
               top={top}
               bottom={bottom}
             />
