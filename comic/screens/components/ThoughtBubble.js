@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Text, StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 import * as Animatable from 'react-native-animatable'
@@ -9,21 +9,69 @@ export default class ThoughtBubble extends Component {
     top: PropTypes.number,
     bottom: PropTypes.number,
     left: PropTypes.number,
-    right: PropTypes.number
+    right: PropTypes.number,
+    bubblesLayout: PropTypes.string,
+    bubblesAlignment: PropTypes.string
+  }
+
+  renderBubblesOnTop() {
+    return (
+      <Fragment>
+        <View style={styles.thoughtBubbleCircleSmall} />
+        <View style={styles.thoughtBubbleCircleBig} />
+        <View style={styles.thoughtBubbleSquare}>
+          <Text style={styles.text}>{this.props.text}</Text>
+        </View>
+      </Fragment>
+    )
+  }
+
+  renderBubblesOnBottom() {
+    return (
+      <Fragment>
+        <View style={styles.thoughtBubbleSquare}>
+          <Text style={styles.text}>{this.props.text}</Text>
+        </View>
+        <View style={styles.thoughtBubbleCircleBig} />
+        <View style={styles.thoughtBubbleCircleSmall} />
+      </Fragment>
+    )
   }
 
   render() {
-    const { text, top, bottom, left, right } = this.props
+    const {
+      top,
+      bottom,
+      left,
+      right,
+      bubblesLayout,
+      bubblesAlignment
+    } = this.props
+
+    const formatAlignment = bubblesAlignment => {
+      if (bubblesAlignment === 'left') {
+        return 'flex-start'
+      } else if (bubblesAlignment === 'right') {
+        return 'flex-end'
+      } else return bubblesAlignment
+    }
+
     return (
       <Animatable.View
         animation="fadeIn"
-        style={[styles.bubble, { top, bottom, left, right }]}
+        style={[
+          styles.bubble,
+          {
+            top,
+            bottom,
+            left,
+            right,
+            alignItems: formatAlignment(bubblesAlignment)
+          }
+        ]}
       >
-      <View style={styles.thoughtBubbleCircleTopCenterSmall} />
-      <View style={styles.thoughtBubbleCircleTopCenterBig} />
-        <View style={styles.thoughtBubbleSquare}>
-          <Text style={styles.text}>{text}</Text>
-        </View>
+        {bubblesLayout === 'onTop' && this.renderBubblesOnTop()}
+        {bubblesLayout === 'onBottom' && this.renderBubblesOnBottom()}
       </Animatable.View>
     )
   }
@@ -31,8 +79,7 @@ export default class ThoughtBubble extends Component {
 
 const styles = StyleSheet.create({
   bubble: {
-    position: 'absolute',
-    alignItems: 'center'
+    position: 'absolute'
   },
   text: {
     color: 'black',
@@ -41,91 +88,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingHorizontal: 20,
     paddingVertical: 20,
-    fontFamily: "oldrichium"
+    fontFamily: 'oldrichium'
   },
   thoughtBubbleSquare: {
     borderRadius: 50,
     justifyContent: 'center',
     backgroundColor: 'rgba(246, 246, 38, 0.7)'
   },
-  thoughtBubbleCircleBottomLeft: {
-    position: 'absolute',
-    left: 40,
-    bottom: -26,
-    width: 0,
-    height: 0,
-    borderTopWidth: 26,
-    borderTopColor: 'rgba(246, 246, 38, 0.7)',
-    borderRightWidth: 26,
-    borderRightColor: 'transparent',
-    borderLeftWidth: 26,
-    borderLeftColor: 'transparent'
-  },
-  thoughtBubbleCircleBottomRight: {
-    position: 'absolute',
-    right: 40,
-    bottom: -26,
-    width: 0,
-    height: 0,
-    borderTopWidth: 26,
-    borderTopColor: 'rgba(246, 246, 38, 0.7)',
-    borderRightWidth: 26,
-    borderRightColor: 'transparent',
-    borderLeftWidth: 26,
-    borderLeftColor: 'transparent'
-  },
-  thoughtBubbleCircleTopLeft: {
-    position: 'absolute',
-    left: 40,
-    top: -26,
-    width: 0,
-    height: 0,
-    borderBottomWidth: 26,
-    borderBottomColor: 'rgba(246, 246, 38, 0.7)',
-    borderRightWidth: 26,
-    borderRightColor: 'transparent',
-    borderLeftWidth: 26,
-    borderLeftColor: 'transparent'
-  },
-  thoughtBubbleCircleTopRight: {
-    position: 'absolute',
-    right: 40,
-    top: -26,
-    width: 0,
-    height: 0,
-    borderBottomWidth: 26,
-    borderBottomColor: 'rgba(246, 246, 38, 0.7)',
-    borderRightWidth: 26,
-    borderRightColor: 'transparent',
-    borderLeftWidth: 26,
-    borderLeftColor: 'transparent'
-  },
-  thoughtBubbleCircleBottomCenter: {
-    position: 'absolute',
-    right: '45%',
-    bottom: -26,
-    width: 0,
-    height: 0,
-    borderTopWidth: 26,
-    borderTopColor: 'rgba(246, 246, 38, 0.7)',
-    borderRightWidth: 26,
-    borderRightColor: 'transparent',
-    borderLeftWidth: 26,
-    borderLeftColor: 'transparent'
-  },
-  thoughtBubbleCircleTopCenterBig: {
+  thoughtBubbleCircleBig: {
     width: 10,
     height: 10,
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
     borderWidth: 20,
-    margin: 5
+    marginVertical: 10,
+    marginHorizontal: 25
   },
-  thoughtBubbleCircleTopCenterSmall: {
+  thoughtBubbleCircleSmall: {
     width: 10,
     height: 10,
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
-    borderWidth: 10
+    borderWidth: 10,
+    marginHorizontal: 35
   }
 })

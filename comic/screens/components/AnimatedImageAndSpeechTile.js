@@ -30,6 +30,8 @@ export default class AnimatedImageAndSpeechTile extends Component {
     rightFirstBubble: PropTypes.number,
     leftFirstBubble: PropTypes.number,
     trianglePositionFirstBubble: PropTypes.string,
+    bubblesLayoutFirstBubble: PropTypes.string,
+    bubblesAlignmentFirstBubble: PropTypes.string,
     tapCountNumberSecondBubble: PropTypes.number,
     textSecondBubble: PropTypes.string,
     typeSecondBubble: PropTypes.string,
@@ -37,7 +39,9 @@ export default class AnimatedImageAndSpeechTile extends Component {
     bottomSecondBubble: PropTypes.number,
     rightSecondBubble: PropTypes.number,
     leftSecondBubble: PropTypes.number,
-    trianglePositionSecondBubble: PropTypes.string
+    trianglePositionSecondBubble: PropTypes.string,
+    bubblesLayoutSecondBubble: PropTypes.string,
+    bubblesAlignmentSecondBubble: PropTypes.string
   }
 
   renderFirstBubble() {
@@ -57,6 +61,8 @@ export default class AnimatedImageAndSpeechTile extends Component {
         bottom={this.props.bottomFirstBubble}
         right={this.props.rightFirstBubble}
         left={this.props.leftFirstBubble}
+        bubblesLayout={this.props.bubblesLayoutFirstBubble}
+        bubblesAlignment={this.props.bubblesAlignmentFirstBubble}
       />
     )
   }
@@ -78,6 +84,8 @@ export default class AnimatedImageAndSpeechTile extends Component {
         bottom={this.props.bottomSecondBubble}
         right={this.props.rightSecondBubble}
         left={this.props.leftSecondBubble}
+        bubblesLayout={this.props.bubblesLayoutSecondBubble}
+        bubblesAlignment={this.props.bubblesAlignmentSecondBubble}
       />
     )
   }

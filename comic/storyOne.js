@@ -70,12 +70,14 @@ const storyOne = {
   ScreenSix: {
     layoutType: 10,
     tileOne: {
-      backgroundImageUri: require('../assets/will-screen5-tile1.jpg'),
+      backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
       text: "This is the speech/thought screen",
       textFirstBubble: 'This is for you, Night Zookeeper.',
       textSecondBubble: 'This is for you, Night Zookeeper.',
       typeFirstBubble: 'thought',
       trianglePositionFirstBubble: 'BottomCenter',
+      bubblesLayoutFirstBubble: 'onBottom',
+      bubblesAlignmentFirstBubble: 'left',
       typeSecondBubble: 'speech',
       trianglePositionSecondBubble: 'TopCenter',
     },
