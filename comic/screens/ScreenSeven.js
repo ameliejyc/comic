@@ -69,7 +69,7 @@ export default class ScreenSeven extends Component {
         yPosition={this.state.yPosition}
         tapCount={this.state.tapCount}
         tapCountNumber={4}
-        text="imagination itself!"
+        text={currentProps.tileFour.text}
         bottom={0}
       />
     )
@@ -95,7 +95,7 @@ export default class ScreenSeven extends Component {
         <HorizontalHalfTop>
           <AnimatedImageAndTextTile 
             tileAnimation='fadeInLeftBig'
-            delay={200}
+            delay={currentProps.tileOne.delay}
             imageUri={currentProps.tileOne.backgroundImageUri}
             tapCount={this.state.tapCount}
             tapCountNumber={1}

@@ -53,7 +53,7 @@ export default class ScreenOne extends Component {
       <FullScreenWrapper {...this.panResponder.panHandlers}>
         <AnimatedImageAndTextTile 
           tileAnimation='fadeInLeftBig'
-          delay={500}
+          delay={currentProps.tileOne.delay}
           imageUri={currentProps.tileOne.backgroundImageUri}
           tapCount={this.state.tapCount}
           tapCountNumber={1}

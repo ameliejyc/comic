@@ -12,119 +12,43 @@ import Tappable from './Tappable'
 import ScreenOne from './comic/screens/ScreenOne'
 import ScreenTwo from './comic/screens/ScreenTwo'
 import ScreenThree from './comic/screens/ScreenThree'
-import ScreenFour from './comic/screens/ScreenFour'
-import ScreenFive from './comic/screens/ScreenFive'
-import ScreenSix from './comic/screens/ScreenSix'
 import ScreenSeven from './comic/screens/ScreenSeven'
-import ScreenEight from './comic/screens/ScreenEight'
-import ScreenNine from './comic/screens/ScreenNine'
 import ScreenTen from './comic/screens/ScreenTen'
+import storyOne from './comic/storyOne.js'
 
-// put this into a story json ?
-const screenProps = {
-  // one is ScreenOne
-  One: {
-    tileOne: {
-      backgroundImageUri: require('./assets/flying-screen1.gif'),
-      text: 'Welcome to the Night Zoo, CoolDonkey'
-    },
-    nextScreen: 'Two'
-  },
-  // two is ScreenThree
-  Two: {
-    tileOne: {
-      backgroundImageUri: require('./assets/desert-screen2-tile1.jpg'),
-      text: 'A magical place, where anything is possible'
-    },
-    tileTwo: {
-      backgroundImageUri: require('./assets/woods-screen2-tile2.jpg'),
-      text: "It was once a beautiful place"
-    },
-    tileThree: {
-      backgroundImageUri: require('./assets/woods-screen2-tile3.jpg'),
-      text: "Home to many magical animals"
-    },
-    nextScreen: 'Three',
-  },
-  // three is ScreenSeven
-  Three: {
-    tileOne: {
-      backgroundImageUri: require('./assets/nulth-screen3-tile1.gif'),
-      text: "But the evil Lord of Nulth declared war on the Night Zoo and..."
-    },
-    tileTwo: {
-      backgroundImageUri: require('./assets/nulth-screen3-tile2.jpg')
-    },
-    tileThree: {
-      backgroundImageUri: require('./assets/nulth-screen3-tile3.jpg')
-    },
-    tileFour: {
-      backgroundImageUri: require('./assets/nulth-screen3-tile4.png')
-    },
-    nextScreen: 'Four'
-  },
-  // four is ScreenTwo
-  Four: {
-    tileOne: {
-      backgroundImageUri: require('./assets/voids-screen4-tile1.jpg'),
-      text: 'His army of mass-produced Voids are taking over.'
-    },
-    tileTwo: {
-      backgroundImageUri: require('./assets/voids-screen4-tile2.jpg'),
-      text: "And magical animals are going missing!"
-    },
-    nextScreen: 'Five',
-  },
-  // five is ScreenOne
-  Five: {
-    tileOne: {
-      backgroundImageUri: require('./assets/will-screen5-tile1.jpg'),
-      text: "It's your job to battle Nulth and save the animals of The Night Zoo!"
-    },
-    nextScreen: 'Six',
-  },
-  // six is ScreenTen (currently...)
-  Six: {
-    tileOne: {
-      backgroundImageUri: require('./assets/will-screen5-tile1.jpg'),
-      textFirstSpeech: "This is for you, Night Zookeeper.",
-      textSecondSpeech: "This is for you, Night Zookeeper.",
-    },
-  nextScreen: 'One'
-  }
-}
+const screenProps = storyOne
 
-const ComicBook = createStackNavigator({
-  // Todo: { screen: TodoScreen },
-  // Animation: { screen: AnimationScreen },
-  // Gesture: { screen: GestureContainer },
-  // Scroll: { screen: ScrollScreen },
-  // ImageReveal: { screen: ImageReveal },
-  // Interpolation: { screen: Interpolation},
-  // SlideOne: { screen: SlideOne },
-  // Tappable: { screen: Tappable },
+const ComicBook = createStackNavigator(
+  {
+    // Todo: { screen: TodoScreen },
+    // Animation: { screen: AnimationScreen },
+    // Gesture: { screen: GestureContainer },
+    // Scroll: { screen: ScrollScreen },
+    // ImageReveal: { screen: ImageReveal },
+    // Interpolation: { screen: Interpolation},
+    // SlideOne: { screen: SlideOne },
+    // Tappable: { screen: Tappable },
     One: { screen: ScreenOne },
     Two: { screen: ScreenThree },
     Three: { screen: ScreenSeven },
     Four: { screen: ScreenTwo },
     Five: { screen: ScreenOne },
-    Six: { screen: ScreenTen },
+    Six: { screen: ScreenTen }
   },
   {
     navigationOptions: {
       gesturesEnabled: true,
       headerStyle: {
-        backgroundColor: '#341644',
+        backgroundColor: '#341644'
       }
     }
   },
   {
     headerMode: 'none'
-  },
+  }
 )
 
 export default class App extends Component {
-
   state = {
     assetsLoaded: false
   }
@@ -132,22 +56,22 @@ export default class App extends Component {
   async componentDidMount() {
     try {
       await Font.loadAsync({
-        'oldrichium': require('./assets/fonts/Oldrichium.otf'),
-        'oldrichiumBold': require('./assets/fonts/OldrichiumBold.otf')
+        oldrichium: require('./assets/fonts/Oldrichium.otf'),
+        oldrichiumBold: require('./assets/fonts/OldrichiumBold.otf')
       })
-    } catch(e) {
-        console.warn('There was an error loading assets. Reload the app to try again.')
-        console.log(e.message)
+    } catch (e) {
+      console.warn(
+        'There was an error loading assets. Reload the app to try again.'
+      )
+      console.log(e.message)
     } finally {
-        this.setState({ assetsLoaded: true })
+      this.setState({ assetsLoaded: true })
     }
   }
 
   render() {
     if (this.state.assetsLoaded) {
-      return (
-        <ComicBook screenProps={screenProps} />
-      )
+      return <ComicBook screenProps={screenProps} />
     } else {
       // return loading screen here in future
       return null

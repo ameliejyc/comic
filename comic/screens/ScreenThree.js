@@ -114,7 +114,7 @@ export default class ScreenThree extends Component {
           <VerticalHalfLeft>
           <AnimatedImageAndTextTile 
             tileAnimation='fadeInLeftBig'
-            delay={200}
+            delay={currentProps.tileOne.delay}
             beginTransitionAnimation={this.beginTransitionTileOne}
             imageUri={currentProps.tileOne.backgroundImageUri}
             imageWidth={600}
