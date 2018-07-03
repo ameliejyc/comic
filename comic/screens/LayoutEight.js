@@ -12,7 +12,7 @@ import {
   TopRightThird
 } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
+export default class LayoutEight extends Component {
   static propTypes = {
     // tile: PropTypes.string
   }

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import {
   PanResponder
 } from 'react-native'
-import AnimatedImageAndSpeechTile from './components/AnimatedImageAndSpeechTile'
+import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
 import { FullScreenWrapper } from './components/ScreenStyles.styles'
 
-export default class ScreenTen extends Component {
+export default class LayoutOne extends Component {
   constructor(props) {
     super(props)
 
@@ -36,35 +36,31 @@ export default class ScreenTen extends Component {
     const currentScreen = this.props.navigation.state.routeName
 
     const { navigate } = this.props.navigation
-    if (this.state.tapCount < 2) {
-      return this.setState({ tapCount: ++this.state.tapCount })
-    }
-    else {
-      return navigate(this.props.screenProps[currentScreen].nextScreen)
+    switch (this.state.tapCount) {
+      case 0:
+        return this.setState({ tapCount: ++this.state.tapCount })
+      case 1:
+        return navigate(this.props.screenProps[currentScreen].nextScreen)
     }
   }
 
   render() {
+    console.log(this.props)
     const currentScreen = this.props.navigation.state.routeName
 
     const currentProps = this.props.screenProps[currentScreen]
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-      <AnimatedImageAndSpeechTile 
-        tileAnimation='fadeInLeftBig'
-        delay={500}
-        imageUri={currentProps.tileOne.backgroundImageUri}
-        tapCount={this.state.tapCount}
-        textFirstSpeech={currentProps.tileOne.textFirstSpeech}
-        tapCountNumberFirstSpeech={1}
-        topFirstSpeech={20}
-        leftFirstSpeech={20}
-        textSecondSpeech={currentProps.tileOne.textSecondSpeech}
-        tapCountNumberSecondSpeech={2}
-        bottomSecondSpeech={20}
-        rightSecondSpeech={20}
-      />
+        <AnimatedImageAndTextTile 
+          tileAnimation='fadeInLeftBig'
+          delay={currentProps.tileOne.delay}
+          imageUri={currentProps.tileOne.backgroundImageUri}
+          tapCount={this.state.tapCount}
+          tapCountNumber={1}
+          text={currentProps.tileOne.text}
+          bottom={0}
+        />
       </FullScreenWrapper>
     )
   }

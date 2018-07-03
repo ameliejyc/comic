@@ -4,7 +4,7 @@ import { PanResponder, Animated } from 'react-native'
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
 import { FullScreenWrapper, ColumnWrapper, RowWrapper, HorizontalHalfTop, BottomLeftThird, BottomMiddleThird, BottomRightThird } from './components/ScreenStyles.styles'
 
-export default class ScreenSeven extends Component {
+export default class LayoutSeven extends Component {
   constructor(props) {
     super(props)
 

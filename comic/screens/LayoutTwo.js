@@ -4,7 +4,7 @@ import { PanResponder, Animated } from 'react-native'
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
 import { FullScreenWrapper, RowWrapper, VerticalHalfLeft, VerticalHalfRight } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
+export default class LayoutTwo extends Component {
   static propTypes = {
     // tile: PropTypes.string
   }

@@ -9,11 +9,11 @@ import ImageReveal from './ImageReveal'
 import Interpolation from './Interpolation'
 import SlideOne from './SlideOne'
 import Tappable from './Tappable'
-import ScreenOne from './comic/screens/ScreenOne'
-import ScreenTwo from './comic/screens/ScreenTwo'
-import ScreenThree from './comic/screens/ScreenThree'
-import ScreenSeven from './comic/screens/ScreenSeven'
-import ScreenTen from './comic/screens/ScreenTen'
+import LayoutOne from './comic/screens/LayoutOne'
+import LayoutTwo from './comic/screens/LayoutTwo'
+import LayoutThree from './comic/screens/LayoutThree'
+import LayoutSeven from './comic/screens/LayoutSeven'
+import LayoutTen from './comic/screens/LayoutTen'
 import storyOne from './comic/storyOne.js'
 
 const screenProps = storyOne
@@ -28,12 +28,12 @@ const ComicBook = createStackNavigator(
     // Interpolation: { screen: Interpolation},
     // SlideOne: { screen: SlideOne },
     // Tappable: { screen: Tappable },
-    One: { screen: ScreenOne },
-    Two: { screen: ScreenThree },
-    Three: { screen: ScreenSeven },
-    Four: { screen: ScreenTwo },
-    Five: { screen: ScreenOne },
-    Six: { screen: ScreenTen }
+    ScreenOne: { screen: LayoutOne },
+    ScreenTwo: { screen: LayoutThree },
+    ScreenThree: { screen: LayoutSeven },
+    ScreenFour: { screen: LayoutTwo },
+    ScreenFive: { screen: LayoutOne },
+    ScreenSix: { screen: LayoutTen }
   },
   {
     navigationOptions: {

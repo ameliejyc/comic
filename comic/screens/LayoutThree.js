@@ -5,7 +5,7 @@ import { FullScreenWrapper, RowWrapper, ColumnWrapper, VerticalHalfLeft, TopRigh
 
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
 
-export default class ScreenThree extends Component {
+export default class LayoutThree extends Component {
   constructor(props) {
     super(props)
 

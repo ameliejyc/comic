@@ -4,9 +4,13 @@ import {
   PanResponder
 } from 'react-native'
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
-import { FullScreenWrapper } from './components/ScreenStyles.styles'
+import { FullScreenWrapper, ColumnWrapper, RowWrapper } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
+export default class Layout extends Component {
+  static propTypes = {
+    // tile: PropTypes.string
+  }
+
   constructor(props) {
     super(props)
 
@@ -15,10 +19,12 @@ export default class ScreenOne extends Component {
     }
   }
 
+  // remove and put into shared NavigationOptions
   static navigationOptions = {
     header: null
  }
 
+  // set up panResponder
   panResponder = {}
 
   componentWillMount() {
@@ -35,13 +41,15 @@ export default class ScreenOne extends Component {
   handlePanResponderGrant = e => {
     const currentScreen = this.props.navigation.state.routeName
 
-    const { navigate } = this.props.navigation
-    switch (this.state.tapCount) {
-      case 0:
-        return this.setState({ tapCount: ++this.state.tapCount })
-      case 1:
-        return navigate(this.props.screenProps[currentScreen].nextScreen)
+    const { navigate} = this.props.navigation
+    if (this.state.tapCount < 5) {
+      return this.setState({tapCount: ++this.state.tapCount})
     }
+      return navigate(this.props.screenProps[currentScreen].nextScreen)
+  }
+
+  displaySecondTile = currentProps => {
+    return 
   }
 
   render() {
@@ -53,13 +61,15 @@ export default class ScreenOne extends Component {
       <FullScreenWrapper {...this.panResponder.panHandlers}>
         <AnimatedImageAndTextTile 
           tileAnimation='fadeInLeftBig'
-          delay={currentProps.tileOne.delay}
-          imageUri={currentProps.tileOne.backgroundImageUri}
+          delay={500}
+          imageUri={require('../../assets/flying-screen1.gif')}
           tapCount={this.state.tapCount}
           tapCountNumber={1}
-          text={currentProps.tileOne.text}
+          text="I am screen number..."
+          position='absolute'
           bottom={0}
         />
+        {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
       </FullScreenWrapper>
     )
   }

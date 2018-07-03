@@ -14,7 +14,7 @@ import {
   BottomRightThird
 } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
+export default class LayoutNine extends Component {
   static propTypes = {
     // tile: PropTypes.string
   }

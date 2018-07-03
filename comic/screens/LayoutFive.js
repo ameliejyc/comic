@@ -4,12 +4,13 @@ import { PanResponder } from 'react-native'
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
 import {
   FullScreenWrapper,
-  ColumnWrapper,
-  HorizontalHalfTop,
-  HorizontalHalfBottom
+  LeftThird,
+  MiddleThird,
+  RightThird,
+  RowWrapper
 } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
+export default class LayoutFive extends Component {
   static propTypes = {
     // tile: PropTypes.string
   }
@@ -55,6 +56,10 @@ export default class ScreenOne extends Component {
     return
   }
 
+  displayThirdTile = currentProps => {
+    return
+  }
+
   render() {
     const currentScreen = this.props.navigation.state.routeName
 
@@ -62,22 +67,25 @@ export default class ScreenOne extends Component {
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-        <ColumnWrapper>
-          <HorizontalHalfTop>
+        <RowWrapper>
+          <LeftThird>
             <AnimatedImageAndTextTile
               tileAnimation="fadeInLeftBig"
               delay={500}
               imageUri={require('../../assets/flying-screen1.gif')}
               tapCount={this.state.tapCount}
               tapCountNumber={1}
-              text="I am screen number 6"
+              text="I am layout number 5"
               bottom={0}
             />
-          </HorizontalHalfTop>
-          <HorizontalHalfBottom>
+          </LeftThird>
+          <MiddleThird>
             {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
-          </HorizontalHalfBottom>
-        </ColumnWrapper>
+          </MiddleThird>
+          <RightThird>
+            {this.state.tapCount >= 4 && this.displayThirdTile(currentProps)}
+          </RightThird>
+        </RowWrapper>
       </FullScreenWrapper>
     )
   }

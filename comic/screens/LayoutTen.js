@@ -3,14 +3,10 @@ import PropTypes from 'prop-types'
 import {
   PanResponder
 } from 'react-native'
-import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
-import { FullScreenWrapper, ColumnWrapper, RowWrapper } from './components/ScreenStyles.styles'
+import AnimatedImageAndSpeechTile from './components/AnimatedImageAndSpeechTile'
+import { FullScreenWrapper } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
-  static propTypes = {
-    // tile: PropTypes.string
-  }
-
+export default class LayoutTen extends Component {
   constructor(props) {
     super(props)
 
@@ -19,12 +15,10 @@ export default class ScreenOne extends Component {
     }
   }
 
-  // remove and put into shared NavigationOptions
   static navigationOptions = {
     header: null
  }
 
-  // set up panResponder
   panResponder = {}
 
   componentWillMount() {
@@ -41,15 +35,13 @@ export default class ScreenOne extends Component {
   handlePanResponderGrant = e => {
     const currentScreen = this.props.navigation.state.routeName
 
-    const { navigate} = this.props.navigation
-    if (this.state.tapCount < 5) {
-      return this.setState({tapCount: ++this.state.tapCount})
+    const { navigate } = this.props.navigation
+    if (this.state.tapCount < 2) {
+      return this.setState({ tapCount: ++this.state.tapCount })
     }
+    else {
       return navigate(this.props.screenProps[currentScreen].nextScreen)
-  }
-
-  displaySecondTile = currentProps => {
-    return 
+    }
   }
 
   render() {
@@ -59,17 +51,20 @@ export default class ScreenOne extends Component {
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-        <AnimatedImageAndTextTile 
-          tileAnimation='fadeInLeftBig'
-          delay={500}
-          imageUri={require('../../assets/flying-screen1.gif')}
-          tapCount={this.state.tapCount}
-          tapCountNumber={1}
-          text="I am screen number..."
-          position='absolute'
-          bottom={0}
-        />
-        {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
+      <AnimatedImageAndSpeechTile 
+        tileAnimation='fadeInLeftBig'
+        delay={500}
+        imageUri={currentProps.tileOne.backgroundImageUri}
+        tapCount={this.state.tapCount}
+        textFirstSpeech={currentProps.tileOne.textFirstSpeech}
+        tapCountNumberFirstSpeech={1}
+        topFirstSpeech={20}
+        leftFirstSpeech={20}
+        textSecondSpeech={currentProps.tileOne.textSecondSpeech}
+        tapCountNumberSecondSpeech={2}
+        bottomSecondSpeech={20}
+        rightSecondSpeech={20}
+      />
       </FullScreenWrapper>
     )
   }

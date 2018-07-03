@@ -6,7 +6,7 @@ import {
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
 import { FullScreenWrapper, ColumnWrapper, RowWrapper, TopLeftQuarter, BottomLeftQuarter,  TopRightQuarter, BottomRightQuarter } from './components/ScreenStyles.styles'
 
-export default class ScreenOne extends Component {
+export default class LayoutFour extends Component {
   static propTypes = {
     // tile: PropTypes.string
   }
@@ -76,7 +76,7 @@ export default class ScreenOne extends Component {
               imageUri={require('../../assets/flying-screen1.gif')}
               tapCount={this.state.tapCount}
               tapCountNumber={1}
-              text="I am ScreenFour"
+              text="I am layout 4"
               bottom={0}
             />
             </TopLeftQuarter>
