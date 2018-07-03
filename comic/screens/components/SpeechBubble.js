@@ -13,7 +13,7 @@ export default class SpeechBubble extends Component {
   }
 
   render() {
-    const { text, top, bottom, left, right } = this.props
+    const { text, top, bottom, left, right, trianglePosition } = this.props
     return (
       <Animatable.View
         animation="fadeIn"
@@ -21,7 +21,7 @@ export default class SpeechBubble extends Component {
       >
         <View style={styles.speechBubbleSquare}>
           <Text style={styles.text}>{text}</Text>
-          <View style={styles.speechBubbleTriangleBottomCenter} />
+          <View style={styles[`speechBubbleTriangle${trianglePosition}`]} />
         </View>
       </Animatable.View>
     )
@@ -49,6 +49,19 @@ const styles = StyleSheet.create({
   speechBubbleTriangleLeft: {
     position: 'absolute',
     left: -26,
+    bottom: 26,
+    width: 0,
+    height: 0,
+    borderTopWidth: 13,
+    borderTopColor: 'transparent',
+    borderRightWidth: 26,
+    borderRightColor: 'rgba(255, 255, 255, 0.6)',
+    borderBottomWidth: 13,
+    borderBottomColor: 'transparent'
+  },
+  speechBubbleTriangleRight: {
+    position: 'absolute',
+    right: -26,
     bottom: 26,
     width: 0,
     height: 0,

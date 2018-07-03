@@ -14,6 +14,7 @@ import LayoutTwo from './comic/screens/LayoutTwo'
 import LayoutThree from './comic/screens/LayoutThree'
 import LayoutSeven from './comic/screens/LayoutSeven'
 import LayoutTen from './comic/screens/LayoutTen'
+import LayoutEleven from './comic/screens/LayoutEleven'
 import storyOne from './comic/storyOne.js'
 
 const screenProps = storyOne

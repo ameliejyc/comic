@@ -36,7 +36,7 @@ export default class LayoutTen extends Component {
     const currentScreen = this.props.navigation.state.routeName
 
     const { navigate } = this.props.navigation
-    if (this.state.tapCount < 2) {
+    if (this.state.tapCount < 3) {
       return this.setState({ tapCount: ++this.state.tapCount })
     }
     else {
@@ -51,20 +51,31 @@ export default class LayoutTen extends Component {
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-      <AnimatedImageAndSpeechTile 
-        tileAnimation='fadeInLeftBig'
-        delay={500}
-        imageUri={currentProps.tileOne.backgroundImageUri}
-        tapCount={this.state.tapCount}
-        textFirstSpeech={currentProps.tileOne.textFirstSpeech}
-        tapCountNumberFirstSpeech={1}
-        topFirstSpeech={20}
-        leftFirstSpeech={20}
-        textSecondSpeech={currentProps.tileOne.textSecondSpeech}
-        tapCountNumberSecondSpeech={2}
-        bottomSecondSpeech={20}
-        rightSecondSpeech={20}
-      />
+        <AnimatedImageAndSpeechTile 
+          // tile and image props
+          tileAnimation='fadeInLeftBig'
+          delay={500}
+          imageUri={currentProps.tileOne.backgroundImageUri}
+          tapCount={this.state.tapCount}
+          // narration props
+          tapCountNumberText={1}
+          text={currentProps.tileOne.text}
+          bottom={0}
+          // first bubble props
+          textFirstBubble={currentProps.tileOne.textFirstBubble}
+          tapCountNumberFirstBubble={2}
+          typeFirstBubble={currentProps.tileOne.typeFirstBubble}
+          topFirstBubble={20}
+          leftFirstBubble={20}
+          trianglePositionFirstBubble={currentProps.tileOne.trianglePositionFirstBubble}
+          // second bubble props
+          textSecondBubble={currentProps.tileOne.textSecondBubble}
+          tapCountNumberSecondBubble={3}
+          typeSecondBubble={currentProps.tileOne.typeSecondBubble}
+          bottomSecondBubble={20}
+          rightSecondBubble={20}
+          trianglePositionSecondBubble={currentProps.tileOne.trianglePositionSecondBubble}
+        />
       </FullScreenWrapper>
     )
   }

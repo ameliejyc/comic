@@ -45,7 +45,6 @@ export default class LayoutOne extends Component {
   }
 
   render() {
-    console.log(this.props)
     const currentScreen = this.props.navigation.state.routeName
 
     const currentProps = this.props.screenProps[currentScreen]
