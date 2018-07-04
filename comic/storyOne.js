@@ -60,28 +60,12 @@ const storyOne = {
   ScreenFive: {
     layoutType: 1,
     tileOne: {
-      backgroundImageUri: require('../assets/will-screen5-tile1.jpg'),
+      backgroundImageUri: require('../assets/will-screen5-tile1.gif'),
       text:
         "It's your job to battle Nulth and save the animals of The Night Zoo!",
       delay: 200
     },
     nextScreen: 'ScreenSix'
-  },
-  ScreenSix: {
-    layoutType: 10,
-    tileOne: {
-      backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
-      text: "This is the speech/thought screen",
-      textFirstBubble: 'This is for you, Night Zookeeper.',
-      textSecondBubble: 'This is for you, Night Zookeeper.',
-      typeFirstBubble: 'thought',
-      trianglePositionFirstBubble: 'BottomCenter',
-      bubblesLayoutFirstBubble: 'onBottom',
-      bubblesAlignmentFirstBubble: 'left',
-      typeSecondBubble: 'speech',
-      trianglePositionSecondBubble: 'TopCenter',
-    },
-    nextScreen: 'ScreenOne'
   }
 }
 

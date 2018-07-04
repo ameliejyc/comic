@@ -65,8 +65,10 @@ export default class LayoutTen extends Component {
           textFirstBubble={currentProps.tileOne.textFirstBubble}
           tapCountNumberFirstBubble={2}
           typeFirstBubble={currentProps.tileOne.typeFirstBubble}
-          topFirstBubble={20}
-          leftFirstBubble={20}
+          topFirstBubble={currentProps.tileOne.topFirstBubble}
+          bottomFirstBubble={currentProps.tileOne.bottomFirstBubble}
+          leftFirstBubble={currentProps.tileOne.leftFirstBubble}
+          rightFirstBubble={currentProps.tileOne.rightFirstBubble}
           trianglePositionFirstBubble={currentProps.tileOne.trianglePositionFirstBubble}
           bubblesLayoutFirstBubble={currentProps.tileOne.bubblesLayoutFirstBubble}
           bubblesAlignmentFirstBubble={currentProps.tileOne.bubblesAlignmentFirstBubble}
@@ -74,8 +76,10 @@ export default class LayoutTen extends Component {
           textSecondBubble={currentProps.tileOne.textSecondBubble}
           tapCountNumberSecondBubble={3}
           typeSecondBubble={currentProps.tileOne.typeSecondBubble}
-          bottomSecondBubble={20}
-          rightSecondBubble={20}
+          topSecondBubble={currentProps.tileOne.topSecondBubble}
+          bottomSecondBubble={currentProps.tileOne.bottomSecondBubble}
+          leftSecondBubble={currentProps.tileOne.leftSecondBubble}
+          rightSecondBubble={currentProps.tileOne.rightSecondBubble}
           trianglePositionSecondBubble={currentProps.tileOne.trianglePositionSecondBubble}
           bubblesLayoutSecondBubble={currentProps.tileOne.bubblesLayoutSecondBubble}
           bubblesAlignmentSecondBubble={currentProps.tileOne.bubblesAlignmentSecondBubble}

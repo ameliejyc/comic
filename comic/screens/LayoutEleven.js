@@ -36,7 +36,7 @@ export default class LayoutTen extends Component {
     const currentScreen = this.props.navigation.state.routeName
 
     const { navigate } = this.props.navigation
-    if (this.state.tapCount < 6) {
+    if (this.state.tapCount < 7) {
       return this.setState({ tapCount: ++this.state.tapCount })
     }
     else {
@@ -49,25 +49,30 @@ export default class LayoutTen extends Component {
       <AnimatedImageAndSpeechTile 
         // tile and image props
         tileAnimation='fadeInLeftBig'
-        delay={500}
-        imageUri={currentProps.tileOne.backgroundImageUri}
+        imageUri={currentProps.tileTwo.backgroundImageUri}
         tapCount={this.state.tapCount}
         // narration props
-        tapCountNumberText={4}
-        text={currentProps.tileOne.text}
+        tapCountNumberText={5}
+        text={currentProps.tileTwo.text}
         bottom={0}
         // first bubble props
-        textFirstBubble={currentProps.tileOne.textFirstBubble}
-        tapCountNumberFirstBubble={5}
-        typeFirstBubble={currentProps.tileOne.typeFirstBubble}
-        topFirstBubble={20}
-        trianglePositionFirstBubble={currentProps.tileOne.trianglePositionFirstBubble}
+        textFirstBubble={currentProps.tileTwo.textFirstBubble}
+        tapCountNumberFirstBubble={6}
+        typeFirstBubble={currentProps.tileTwo.typeFirstBubble}
+        topFirstBubble={currentProps.tileTwo.topFirstBubble}
+        bottomFirstBubble={currentProps.tileTwo.bottomFirstBubble}
+        trianglePositionFirstBubble={currentProps.tileTwo.trianglePositionFirstBubble}
+        bubblesLayoutFirstBubble={currentProps.tileTwo.bubblesLayoutFirstBubble}
+        bubblesAlignmentFirstBubble={currentProps.tileTwo.bubblesAlignmentFirstBubble}
         // second bubble props
-        textSecondBubble={currentProps.tileOne.textSecondBubble}
-        tapCountNumberSecondBubble={6}
-        typeSecondBubble={currentProps.tileOne.typeSecondBubble}
-        bottomSecondBubble={20}
-        trianglePositionSecondBubble={currentProps.tileOne.trianglePositionSecondBubble}
+        textSecondBubble={currentProps.tileTwo.textSecondBubble}
+        tapCountNumberSecondBubble={7}
+        typeSecondBubble={currentProps.tileTwo.typeSecondBubble}
+        topSecondBubble={currentProps.tileTwo.topSecondBubble}
+        bottomSecondBubble={currentProps.tileTwo.bottomSecondBubble}
+        trianglePositionSecondBubble={currentProps.tileTwo.trianglePositionSecondBubble}
+        bubblesLayoutSecondBubble={currentProps.tileTwo.bubblesLayoutSecondBubble}
+        bubblesAlignmentSecondBubble={currentProps.tileTwo.bubblesAlignmentSecondBubble}
       />
     )
   }
@@ -95,18 +100,24 @@ export default class LayoutTen extends Component {
               textFirstBubble={currentProps.tileOne.textFirstBubble}
               tapCountNumberFirstBubble={2}
               typeFirstBubble={currentProps.tileOne.typeFirstBubble}
-              topFirstBubble={20}
+              topFirstBubble={currentProps.tileOne.topFirstBubble}
+              bottomFirstBubble={currentProps.tileOne.bottomFirstBubble}
               trianglePositionFirstBubble={currentProps.tileOne.trianglePositionFirstBubble}
+              bubblesLayoutFirstBubble={currentProps.tileOne.bubblesLayoutFirstBubble}
+              bubblesAlignmentFirstBubble={currentProps.tileOne.bubblesAlignmentFirstBubble}
               // second bubble props
               textSecondBubble={currentProps.tileOne.textSecondBubble}
               tapCountNumberSecondBubble={3}
               typeSecondBubble={currentProps.tileOne.typeSecondBubble}
-              bottomSecondBubble={20}
+              topSecondBubble={currentProps.tileOne.topSecondBubble}
+              bottomSecondBubble={currentProps.tileOne.bottomSecondBubble}
               trianglePositionSecondBubble={currentProps.tileOne.trianglePositionSecondBubble}
+              bubblesLayoutSecondBubble={currentProps.tileOne.bubblesLayoutSecondBubble}
+              bubblesAlignmentSecondBubble={currentProps.tileOne.bubblesAlignmentSecondBubble}
             />
           </VerticalHalfLeft>
           <VerticalHalfRight>
-            {this.state.tapCount >=3 && this.displaySecondTile(currentProps)}
+            {this.state.tapCount >=4 && this.displaySecondTile(currentProps)}
           </VerticalHalfRight>
         </RowWrapper>
       </FullScreenWrapper>

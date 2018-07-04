@@ -53,7 +53,7 @@ export default class ThoughtBubble extends Component {
         return 'flex-start'
       } else if (bubblesAlignment === 'right') {
         return 'flex-end'
-      } else return bubblesAlignment
+      } else return 'center'
     }
 
     return (
@@ -79,7 +79,8 @@ export default class ThoughtBubble extends Component {
 
 const styles = StyleSheet.create({
   bubble: {
-    position: 'absolute'
+    position: 'absolute',
+    maxWidth: '100%'
   },
   text: {
     color: 'black',
@@ -101,8 +102,8 @@ const styles = StyleSheet.create({
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
     borderWidth: 20,
-    marginVertical: 10,
-    marginHorizontal: 25
+    marginVertical: 5,
+    marginHorizontal: 50
   },
   thoughtBubbleCircleSmall: {
     width: 10,
@@ -110,6 +111,6 @@ const styles = StyleSheet.create({
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
     borderWidth: 10,
-    marginHorizontal: 35
+    marginHorizontal: 60
   }
 })

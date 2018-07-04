@@ -15,9 +15,10 @@ export default class SpeechBubble extends Component {
   render() {
     const { text, top, bottom, left, right, trianglePosition } = this.props
     return (
+      // maxWidth stops text taking complete width of page, but unsure if this is necessary
       <Animatable.View
         animation="fadeIn"
-        style={[styles.bubble, { top, bottom, left, right }]}
+        style={[styles.bubble, { maxWidth: trianglePosition === 'Left' || trianglePosition === 'Right' ? '70%' : '100%', top, bottom, left, right }]}
       >
         <View style={styles.speechBubbleSquare}>
           <Text style={styles.text}>{text}</Text>
@@ -42,33 +43,34 @@ const styles = StyleSheet.create({
     fontFamily: "oldrichium"
   },
   speechBubbleSquare: {
-    borderRadius: 50,
+    // height: '130%', // may be necessary to counteract the maxWidth on bubble when left or right triangles
+    borderRadius: 20,
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.6)'
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   speechBubbleTriangleLeft: {
     position: 'absolute',
     left: -26,
-    bottom: 26,
+    bottom: '30%',
     width: 0,
     height: 0,
     borderTopWidth: 13,
     borderTopColor: 'transparent',
     borderRightWidth: 26,
-    borderRightColor: 'rgba(255, 255, 255, 0.6)',
+    borderRightColor: 'rgba(255, 255, 255, 0.8)',
     borderBottomWidth: 13,
     borderBottomColor: 'transparent'
   },
   speechBubbleTriangleRight: {
     position: 'absolute',
     right: -26,
-    bottom: 26,
+    bottom: '30%',
     width: 0,
     height: 0,
     borderTopWidth: 13,
     borderTopColor: 'transparent',
-    borderRightWidth: 26,
-    borderRightColor: 'rgba(255, 255, 255, 0.6)',
+    borderLeftWidth: 26,
+    borderLeftColor: 'rgba(255, 255, 255, 0.8)',
     borderBottomWidth: 13,
     borderBottomColor: 'transparent'
   },
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderTopWidth: 26,
-    borderTopColor: 'rgba(255, 255, 255, 0.6)',
+    borderTopColor: 'rgba(255, 255, 255, 0.8)',
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderTopWidth: 26,
-    borderTopColor: 'rgba(255, 255, 255, 0.6)',
+    borderTopColor: 'rgba(255, 255, 255, 0.8)',
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderBottomWidth: 26,
-    borderBottomColor: 'rgba(255, 255, 255, 0.6)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.8)',
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderBottomWidth: 26,
-    borderBottomColor: 'rgba(255, 255, 255, 0.6)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.8)',
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderTopWidth: 26,
-    borderTopColor: 'rgba(255, 255, 255, 0.6)',
+    borderTopColor: 'rgba(255, 255, 255, 0.8)',
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderBottomWidth: 26,
-    borderBottomColor: 'rgba(255, 255, 255, 0.6)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.8)',
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,

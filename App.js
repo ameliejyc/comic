@@ -16,8 +16,10 @@ import LayoutSeven from './comic/screens/LayoutSeven'
 import LayoutTen from './comic/screens/LayoutTen'
 import LayoutEleven from './comic/screens/LayoutEleven'
 import storyOne from './comic/storyOne.js'
+import bubbleScreens from './comic/bubbleScreens.js'
 
-const screenProps = storyOne
+// const screenProps = storyOne
+const screenProps = bubbleScreens
 
 const ComicBook = createStackNavigator(
   {
@@ -29,12 +31,17 @@ const ComicBook = createStackNavigator(
     // Interpolation: { screen: Interpolation},
     // SlideOne: { screen: SlideOne },
     // Tappable: { screen: Tappable },
-    ScreenOne: { screen: LayoutOne },
-    ScreenTwo: { screen: LayoutThree },
-    ScreenThree: { screen: LayoutSeven },
-    ScreenFour: { screen: LayoutTwo },
-    ScreenFive: { screen: LayoutOne },
-    ScreenSix: { screen: LayoutTen }
+
+    // storyOne screens
+    // ScreenOne: { screen: LayoutOne },
+    // ScreenTwo: { screen: LayoutThree },
+    // ScreenThree: { screen: LayoutSeven },
+    // ScreenFour: { screen: LayoutTwo },
+    // ScreenFive: { screen: LayoutOne }
+    
+    // bubbleScreens
+    ScreenOne: { screen: LayoutTen },
+    ScreenTwo: { screen: LayoutEleven } 
   },
   {
     navigationOptions: {
