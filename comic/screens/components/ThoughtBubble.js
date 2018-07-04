@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View, Animated } from 'react-native'
 import PropTypes from 'prop-types'
-import * as Animatable from 'react-native-animatable'
 
 export default class ThoughtBubble extends Component {
   static propTypes = {
@@ -13,15 +12,38 @@ export default class ThoughtBubble extends Component {
     bubblesLayout: PropTypes.string,
     bubblesAlignment: PropTypes.string
   }
+  
+  state = {
+    opacitySmallCircle: new Animated.Value(0),
+    opacityLargeCircle: new Animated.Value(0),
+    opacitySquare: new Animated.Value(0)
+  }
+
+  componentDidMount() {
+    Animated.sequence([
+      Animated.timing(this.state.opacitySmallCircle, {
+        toValue: 1,
+        duration: 300
+      }),
+      Animated.timing(this.state.opacityLargeCircle, {
+        toValue: 1,
+        duration: 200
+      }),
+      Animated.timing(this.state.opacitySquare, {
+        toValue: 1,
+        duration: 200
+      })
+    ]).start()
+  }
 
   renderBubblesOnTop() {
     return (
       <Fragment>
-        <View style={styles.thoughtBubbleCircleSmall} />
-        <View style={styles.thoughtBubbleCircleBig} />
-        <View style={styles.thoughtBubbleSquare}>
+        <Animated.View style={[styles.thoughtBubbleCircleSmall, { opacity: this.state.opacitySmallCircle }]} />
+        <Animated.View style={[styles.thoughtBubbleCircleBig, { opacity: this.state.opacityLargeCircle} ]} />
+        <Animated.View style={[styles.thoughtBubbleSquare, { opacity: this.state.opacitySquare }]}>
           <Text style={styles.text}>{this.props.text}</Text>
-        </View>
+        </Animated.View>
       </Fragment>
     )
   }
@@ -29,11 +51,11 @@ export default class ThoughtBubble extends Component {
   renderBubblesOnBottom() {
     return (
       <Fragment>
-        <View style={styles.thoughtBubbleSquare}>
+        <Animated.View style={[styles.thoughtBubbleSquare, { opacity: this.state.opacitySquare }]}>
           <Text style={styles.text}>{this.props.text}</Text>
-        </View>
-        <View style={styles.thoughtBubbleCircleBig} />
-        <View style={styles.thoughtBubbleCircleSmall} />
+        </Animated.View>
+        <Animated.View style={[styles.thoughtBubbleCircleBig, { opacity: this.state.opacityLargeCircle} ]} />
+        <Animated.View style={[styles.thoughtBubbleCircleSmall, { opacity: this.state.opacitySmallCircle }]} />
       </Fragment>
     )
   }
@@ -41,11 +63,11 @@ export default class ThoughtBubble extends Component {
   renderBubblesOnRight() {
     return (
       <View style={{ flexDirection: 'row' }}>
-        <View style={styles.thoughtBubbleSquare}>
+        <Animated.View style={[styles.thoughtBubbleSquare, { opacity: this.state.opacitySquare }]}>
           <Text style={styles.text}>{this.props.text}</Text>
-        </View>
-        <View style={styles.thoughtBubbleCircleBigSide} />
-        <View style={styles.thoughtBubbleCircleSmallSide} />
+        </Animated.View>
+        <Animated.View style={[styles.thoughtBubbleCircleBigSide, { opacity: this.state.opacityLargeCircle}]} />
+        <Animated.View style={[styles.thoughtBubbleCircleSmallSide, { opacity: this.state.opacitySmallCircle}]} />
       </View>
     )
   }
@@ -53,11 +75,11 @@ export default class ThoughtBubble extends Component {
   renderBubblesOnLeft() {
     return (
       <View style={{ flexDirection: 'row' }}>
-        <View style={styles.thoughtBubbleCircleSmallSide} />
-        <View style={styles.thoughtBubbleCircleBigSide} />
-        <View style={styles.thoughtBubbleSquare}>
+        <Animated.View style={[styles.thoughtBubbleCircleSmallSide, { opacity: this.state.opacitySmallCircle}]} />
+        <Animated.View style={[styles.thoughtBubbleCircleBigSide, { opacity: this.state.opacityLargeCircle}]} />
+        <Animated.View style={[styles.thoughtBubbleSquare, { opacity: this.state.opacitySquare}]}>
           <Text style={styles.text}>{this.props.text}</Text>
-        </View>
+        </Animated.View>
       </View>
     )
   }
@@ -81,8 +103,7 @@ export default class ThoughtBubble extends Component {
     }
 
     return (
-      <Animatable.View
-        animation="fadeIn"
+      <View
         style={[
           styles.bubble,
           {
@@ -98,7 +119,7 @@ export default class ThoughtBubble extends Component {
         {bubblesLayout === 'onBottom' && this.renderBubblesOnBottom()}
         {bubblesLayout === 'right' && this.renderBubblesOnRight()}
         {bubblesLayout === 'left' && this.renderBubblesOnLeft()}
-      </Animatable.View>
+      </View>
     )
   }
 }
@@ -129,7 +150,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(246, 246, 38, 0.7)',
     borderWidth: 15,
     marginVertical: 5,
-    marginHorizontal: 45
+    marginHorizontal: 45,
+    opacity: 1
   },
   thoughtBubbleCircleSmall: {
     width: 10,

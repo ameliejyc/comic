@@ -18,7 +18,7 @@ export default class SpeechBubble extends Component {
       // maxWidth stops text taking complete width of page, but unsure if this is necessary
       <Animatable.View
         animation="fadeIn"
-        style={[styles.bubble, { maxWidth: trianglePosition === 'Left' || trianglePosition === 'Right' ? '70%' : '100%', top, bottom, left, right }]}
+        style={[styles.bubble, { maxWidth: trianglePosition === 'Left' || trianglePosition === 'Right' ? '80%' : '100%', top, bottom, left, right }]}
       >
         <View style={styles.speechBubbleSquare}>
           <Text style={styles.text}>{text}</Text>

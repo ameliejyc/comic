@@ -9,8 +9,8 @@ const bubbleScreens = {
       typeFirstBubble: 'thought',
       topFirstBubble: 20,
       rightFirstBubble: 20,
-      bubblesLayoutFirstBubble: 'right',
-      // bubblesAlignmentFirstBubble: 'center',
+      bubblesLayoutFirstBubble: 'onBottom',
+      bubblesAlignmentFirstBubble: 'right',
       typeSecondBubble: 'speech',
       trianglePositionSecondBubble: 'Right',
       bottomSecondBubble: '40%',
@@ -29,12 +29,11 @@ const bubbleScreens = {
       topFirstBubble: 20,
       trianglePositionFirstBubble: 'BottomRight',
       typeSecondBubble: 'speech',
-      trianglePositionSecondBubble: 'TopLeft',
+      trianglePositionSecondBubble: 'Right',
       bottomSecondBubble: '40%'
     },
     tileTwo: {
       backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
-      // text: "Speech/thought layout 11",
       textFirstBubble: 'I am thinking of an animal...',
       textSecondBubble: 'This is for you, ',
       typeFirstBubble: 'thought',
@@ -51,7 +50,6 @@ const bubbleScreens = {
     layoutType: 12,
     tileOne: {
       backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
-      // text: "Speech/thought layout 12",
       textFirstBubble: 'This is for you, Night Zookeeper.',
       textSecondBubble: 'This is for you, Night Zookeeper.',
       typeFirstBubble: 'speech',
