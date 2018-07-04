@@ -38,6 +38,30 @@ export default class ThoughtBubble extends Component {
     )
   }
 
+  renderBubblesOnRight() {
+    return (
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.thoughtBubbleSquare}>
+          <Text style={styles.text}>{this.props.text}</Text>
+        </View>
+        <View style={styles.thoughtBubbleCircleBigSide} />
+        <View style={styles.thoughtBubbleCircleSmallSide} />
+      </View>
+    )
+  }
+
+  renderBubblesOnLeft() {
+    return (
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.thoughtBubbleCircleSmallSide} />
+        <View style={styles.thoughtBubbleCircleBigSide} />
+        <View style={styles.thoughtBubbleSquare}>
+          <Text style={styles.text}>{this.props.text}</Text>
+        </View>
+      </View>
+    )
+  }
+
   render() {
     const {
       top,
@@ -72,6 +96,8 @@ export default class ThoughtBubble extends Component {
       >
         {bubblesLayout === 'onTop' && this.renderBubblesOnTop()}
         {bubblesLayout === 'onBottom' && this.renderBubblesOnBottom()}
+        {bubblesLayout === 'right' && this.renderBubblesOnRight()}
+        {bubblesLayout === 'left' && this.renderBubblesOnLeft()}
       </Animatable.View>
     )
   }
@@ -112,5 +138,22 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(246, 246, 38, 0.7)',
     borderWidth: 10,
     marginHorizontal: 60
+  },
+  thoughtBubbleCircleBigSide: {
+    width: 10,
+    height: 10,
+    borderRadius: '50%',
+    borderColor: 'rgba(246, 246, 38, 0.7)',
+    borderWidth: 15,
+    marginVertical: 30,
+    marginHorizontal: 5
+  },
+  thoughtBubbleCircleSmallSide: {
+    width: 10,
+    height: 10,
+    borderRadius: '50%',
+    borderColor: 'rgba(246, 246, 38, 0.7)',
+    borderWidth: 10,
+    marginVertical: 35
   }
 })

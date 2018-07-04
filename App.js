@@ -15,6 +15,7 @@ import LayoutThree from './comic/screens/LayoutThree'
 import LayoutSeven from './comic/screens/LayoutSeven'
 import LayoutTen from './comic/screens/LayoutTen'
 import LayoutEleven from './comic/screens/LayoutEleven'
+import LayoutTwelve from './comic/screens/LayoutTwelve'
 import storyOne from './comic/storyOne.js'
 import bubbleScreens from './comic/bubbleScreens.js'
 
@@ -41,7 +42,8 @@ const ComicBook = createStackNavigator(
     
     // bubbleScreens
     ScreenOne: { screen: LayoutTen },
-    ScreenTwo: { screen: LayoutEleven } 
+    ScreenTwo: { screen: LayoutEleven } ,
+    ScreenThree: { screen: LayoutTwelve } 
   },
   {
     navigationOptions: {

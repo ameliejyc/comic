@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {
-  PanResponder
-} from 'react-native'
+import { PanResponder } from 'react-native'
 import AnimatedImageAndSpeechTile from './components/AnimatedImageAndSpeechTile'
-import { FullScreenWrapper, RowWrapper, VerticalHalfLeft, VerticalHalfRight } from './components/ScreenStyles.styles'
+import {
+  FullScreenWrapper,
+  ColumnWrapper,
+  HorizontalHalfTop,
+  HorizontalHalfBottom
+} from './components/ScreenStyles.styles'
 
-export default class LayoutEleven extends Component {
+export default class LayoutTwelve extends Component {
+  static propTypes = {
+    // tile: PropTypes.string
+  }
+
   constructor(props) {
     super(props)
 
@@ -17,7 +24,7 @@ export default class LayoutEleven extends Component {
 
   static navigationOptions = {
     header: null
- }
+  }
 
   panResponder = {}
 
@@ -36,12 +43,10 @@ export default class LayoutEleven extends Component {
     const currentScreen = this.props.navigation.state.routeName
 
     const { navigate } = this.props.navigation
-    if (this.state.tapCount < 7) {
+    if (this.state.tapCount < 6) {
       return this.setState({ tapCount: ++this.state.tapCount })
     }
-    else {
-      return navigate(this.props.screenProps[currentScreen].nextScreen)
-    }
+    return navigate(this.props.screenProps[currentScreen].nextScreen)
   }
 
   displaySecondTile = currentProps => {
@@ -61,18 +66,11 @@ export default class LayoutEleven extends Component {
         typeFirstBubble={currentProps.tileTwo.typeFirstBubble}
         topFirstBubble={currentProps.tileTwo.topFirstBubble}
         bottomFirstBubble={currentProps.tileTwo.bottomFirstBubble}
+        rightFirstBubble={currentProps.tileTwo.rightFirstBubble}
+        leftFirstBubble={currentProps.tileTwo.leftFirstBubble}
         trianglePositionFirstBubble={currentProps.tileTwo.trianglePositionFirstBubble}
         bubblesLayoutFirstBubble={currentProps.tileTwo.bubblesLayoutFirstBubble}
         bubblesAlignmentFirstBubble={currentProps.tileTwo.bubblesAlignmentFirstBubble}
-        // second bubble props
-        textSecondBubble={currentProps.tileTwo.textSecondBubble}
-        tapCountNumberSecondBubble={7}
-        typeSecondBubble={currentProps.tileTwo.typeSecondBubble}
-        topSecondBubble={currentProps.tileTwo.topSecondBubble}
-        bottomSecondBubble={currentProps.tileTwo.bottomSecondBubble}
-        trianglePositionSecondBubble={currentProps.tileTwo.trianglePositionSecondBubble}
-        bubblesLayoutSecondBubble={currentProps.tileTwo.bubblesLayoutSecondBubble}
-        bubblesAlignmentSecondBubble={currentProps.tileTwo.bubblesAlignmentSecondBubble}
       />
     )
   }
@@ -84,12 +82,11 @@ export default class LayoutEleven extends Component {
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-        <RowWrapper>
-          <VerticalHalfLeft>
+        <ColumnWrapper>
+          <HorizontalHalfTop>
             <AnimatedImageAndSpeechTile 
               // tile and image props
               tileAnimation='fadeInLeftBig'
-              delay={500}
               imageUri={currentProps.tileOne.backgroundImageUri}
               tapCount={this.state.tapCount}
               // narration props
@@ -102,6 +99,8 @@ export default class LayoutEleven extends Component {
               typeFirstBubble={currentProps.tileOne.typeFirstBubble}
               topFirstBubble={currentProps.tileOne.topFirstBubble}
               bottomFirstBubble={currentProps.tileOne.bottomFirstBubble}
+              leftFirstBubble={currentProps.tileOne.leftFirstBubble}
+              rightFirstBubble={currentProps.tileOne.rightFirstBubble}
               trianglePositionFirstBubble={currentProps.tileOne.trianglePositionFirstBubble}
               bubblesLayoutFirstBubble={currentProps.tileOne.bubblesLayoutFirstBubble}
               bubblesAlignmentFirstBubble={currentProps.tileOne.bubblesAlignmentFirstBubble}
@@ -111,15 +110,17 @@ export default class LayoutEleven extends Component {
               typeSecondBubble={currentProps.tileOne.typeSecondBubble}
               topSecondBubble={currentProps.tileOne.topSecondBubble}
               bottomSecondBubble={currentProps.tileOne.bottomSecondBubble}
+              leftSecondBubble={currentProps.tileOne.leftSecondBubble}
+              rightSecondBubble={currentProps.tileOne.rightSecondBubble}
               trianglePositionSecondBubble={currentProps.tileOne.trianglePositionSecondBubble}
               bubblesLayoutSecondBubble={currentProps.tileOne.bubblesLayoutSecondBubble}
               bubblesAlignmentSecondBubble={currentProps.tileOne.bubblesAlignmentSecondBubble}
             />
-          </VerticalHalfLeft>
-          <VerticalHalfRight>
-            {this.state.tapCount >=4 && this.displaySecondTile(currentProps)}
-          </VerticalHalfRight>
-        </RowWrapper>
+          </HorizontalHalfTop>
+          <HorizontalHalfBottom>
+            {this.state.tapCount >= 4 && this.displaySecondTile(currentProps)}
+          </HorizontalHalfBottom>
+        </ColumnWrapper>
       </FullScreenWrapper>
     )
   }

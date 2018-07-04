@@ -9,8 +9,8 @@ const bubbleScreens = {
       typeFirstBubble: 'thought',
       topFirstBubble: 20,
       rightFirstBubble: 20,
-      bubblesLayoutFirstBubble: 'onBottom',
-      bubblesAlignmentFirstBubble: 'center',
+      bubblesLayoutFirstBubble: 'right',
+      // bubblesAlignmentFirstBubble: 'center',
       typeSecondBubble: 'speech',
       trianglePositionSecondBubble: 'Right',
       bottomSecondBubble: '40%',
@@ -45,6 +45,33 @@ const bubbleScreens = {
       trianglePositionSecondBubble: 'TopRight',
       bottomSecondBubble: 20
     },
+    nextScreen: 'ScreenThree'
+  },
+  ScreenThree: {
+    layoutType: 12,
+    tileOne: {
+      backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
+      // text: "Speech/thought layout 12",
+      textFirstBubble: 'This is for you, Night Zookeeper.',
+      textSecondBubble: 'This is for you, Night Zookeeper.',
+      typeFirstBubble: 'speech',
+      topFirstBubble: 20,
+      leftFirstBubble: 20,
+      trianglePositionFirstBubble: 'BottomRight',
+      typeSecondBubble: 'speech',
+      trianglePositionSecondBubble: 'TopLeft',
+      bottomSecondBubble: 20,
+      rightSecondBubble: 20
+    },
+    tileTwo: {
+      backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
+      text: "Speech/thought layout 12",
+      textFirstBubble: 'I am thinking...',
+      typeFirstBubble: 'thought',
+      rightFirstBubble: 20,
+      bottomFirstBubble: '40%',
+      bubblesLayoutFirstBubble: 'left'
+    },
     nextScreen: 'ScreenOne'
   }
 }
@@ -72,7 +99,7 @@ trianglePositionFirstBubble: 'Left' || 'Right' || 'BottomLeft' || 'BottomCenter'
 trianglePositionSecondBubble: 'Left' || 'Right' || 'BottomLeft' || 'BottomCenter' || 'BottomRight' || 'TopLeft' || 'TopCenter' || 'TopRight'
 
 // available props for ThoughtBubble
-bubblesLayoutFirstBubble: 'onTop' || 'onBottom' /* bubbles top or below */
-bubblesLayoutSecondBubble: 'onTop' || 'onBottom' /* bubbles top or below */
+bubblesLayoutFirstBubble: 'onTop' || 'onBottom' || 'right' || 'left' /* bubbles top, below, right or left */
+bubblesLayoutSecondBubble: 'onTop' || 'onBottom' || 'right' || 'left' /* bubbles top, below, right or left */
 bubblesAlignmentFirstBubble: 'left' || 'center' || 'right'
 bubblesAlignmentSecondBubble: 'left' || 'center' || 'right'
