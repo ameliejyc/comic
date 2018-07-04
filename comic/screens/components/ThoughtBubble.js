@@ -13,13 +13,21 @@ export default class ThoughtBubble extends Component {
     bubblesAlignment: PropTypes.string
   }
 
-  state = {
-    opacitySmallCircle: new Animated.Value(0),
-    opacityLargeCircle: new Animated.Value(0),
-    opacitySquare: new Animated.Value(0)
-  }
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      opacitySmallCircle: new Animated.Value(0),
+      opacityLargeCircle: new Animated.Value(0),
+      opacitySquare: new Animated.Value(0)
+      }
+    }
 
   componentDidMount() {
+    this.startBubbleAnimation()
+  }
+
+  startBubbleAnimation() {
     Animated.sequence([
       Animated.timing(this.state.opacitySmallCircle, {
         toValue: 1,
@@ -33,7 +41,7 @@ export default class ThoughtBubble extends Component {
         toValue: 1,
         duration: 200
       })
-    ]).start()
+    ]).start() 
   }
 
   renderBubblesOnTop() {
