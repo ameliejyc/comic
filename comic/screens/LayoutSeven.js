@@ -70,7 +70,8 @@ export default class LayoutSeven extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={4}
         text={currentProps.tileFour.text}
-        bottom={0}
+        bottom={currentProps.tileFour.bottom}
+        top={currentProps.tileFour.top}
       />
     )
   }
@@ -100,7 +101,8 @@ export default class LayoutSeven extends Component {
             tapCount={this.state.tapCount}
             tapCountNumber={1}
             text={currentProps.tileOne.text}
-            bottom={0}
+            bottom={currentProps.tileOne.bottom}
+            top={currentProps.tileOne.top}
           />
           </HorizontalHalfTop>
           <RowWrapper>

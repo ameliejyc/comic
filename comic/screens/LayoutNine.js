@@ -93,7 +93,8 @@ export default class LayoutNine extends Component {
                 tapCount={this.state.tapCount}
                 tapCountNumber={1}
                 text={currentProps.tileOne.text}
-                bottom={0}
+                bottom={currentProps.tileOne.bottom}
+                top={currentProps.tileOne.top}
               />
             </TopLeftThird>
             <TopMiddleThird>

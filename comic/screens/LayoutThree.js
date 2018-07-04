@@ -55,7 +55,8 @@ export default class LayoutThree extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={3}
         text={currentProps.tileTwo.text}
-        bottom={0}
+        bottom={currentProps.tileTwo.bottom}
+        top={currentProps.tileTwo.top}
       />
     )
   }
@@ -71,7 +72,8 @@ export default class LayoutThree extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={5}
         text={currentProps.tileThree.text}
-        bottom={0}
+        bottom={currentProps.tileThree.bottom}
+        top={currentProps.tileThree.top}
       />
     )
   }
@@ -122,7 +124,8 @@ export default class LayoutThree extends Component {
             tapCount={this.state.tapCount}
             tapCountNumber={1}
             text={currentProps.tileOne.text}
-            top={0}
+            bottom={currentProps.tileOne.bottom}
+            top={currentProps.tileOne.top}
           />
           </VerticalHalfLeft>
           <ColumnWrapper>

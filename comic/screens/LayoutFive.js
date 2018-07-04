@@ -76,7 +76,8 @@ export default class LayoutFive extends Component {
               tapCount={this.state.tapCount}
               tapCountNumber={1}
               text="I am layout number 5"
-              bottom={0}
+              bottom={currentProps.tileOne.bottom}
+              top={currentProps.tileOne.top}
             />
           </LeftThird>
           <MiddleThird>

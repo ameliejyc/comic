@@ -71,7 +71,8 @@ export default class LayoutSix extends Component {
               tapCount={this.state.tapCount}
               tapCountNumber={1}
               text="I am screen number 6"
-              bottom={0}
+              bottom={currentProps.tileOne.bottom}
+              top={currentProps.tileOne.top}
             />
           </HorizontalHalfTop>
           <HorizontalHalfBottom>

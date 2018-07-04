@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {
-  PanResponder
-} from 'react-native'
+import { PanResponder } from 'react-native'
 import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
-import { FullScreenWrapper, ColumnWrapper, RowWrapper, TopLeftQuarter, BottomLeftQuarter,  TopRightQuarter, BottomRightQuarter } from './components/ScreenStyles.styles'
+import {
+  FullScreenWrapper,
+  ColumnWrapper,
+  RowWrapper,
+  TopLeftQuarter,
+  BottomLeftQuarter,
+  TopRightQuarter,
+  BottomRightQuarter
+} from './components/ScreenStyles.styles'
 
 export default class LayoutFour extends Component {
   static propTypes = {
@@ -22,7 +28,7 @@ export default class LayoutFour extends Component {
   // remove and put into shared NavigationOptions
   static navigationOptions = {
     header: null
- }
+  }
 
   // set up panResponder
   panResponder = {}
@@ -41,23 +47,23 @@ export default class LayoutFour extends Component {
   handlePanResponderGrant = e => {
     const currentScreen = this.props.navigation.state.routeName
 
-    const { navigate} = this.props.navigation
+    const { navigate } = this.props.navigation
     if (this.state.tapCount < 7) {
-      return this.setState({tapCount: ++this.state.tapCount})
+      return this.setState({ tapCount: ++this.state.tapCount })
     }
-      return navigate(this.props.screenProps[currentScreen].nextScreen)
+    return navigate(this.props.screenProps[currentScreen].nextScreen)
   }
 
   displaySecondTile = currentProps => {
-    return 
+    return
   }
 
   displayThirdTile = currentProps => {
-    return 
+    return
   }
 
   displayFourthTile = currentProps => {
-    return 
+    return
   }
 
   render() {
@@ -67,18 +73,19 @@ export default class LayoutFour extends Component {
 
     return (
       <FullScreenWrapper {...this.panResponder.panHandlers}>
-      <RowWrapper>
-        <ColumnWrapper>
-          <TopLeftQuarter>
-            <AnimatedImageAndTextTile 
-              tileAnimation='fadeInLeftBig'
-              delay={500}
-              imageUri={require('../../assets/flying-screen1.gif')}
-              tapCount={this.state.tapCount}
-              tapCountNumber={1}
-              text="I am layout 4"
-              bottom={0}
-            />
+        <RowWrapper>
+          <ColumnWrapper>
+            <TopLeftQuarter>
+              <AnimatedImageAndTextTile
+                tileAnimation="fadeInLeftBig"
+                delay={500}
+                imageUri={require('../../assets/flying-screen1.gif')}
+                tapCount={this.state.tapCount}
+                tapCountNumber={1}
+                text="I am layout 4"
+                bottom={currentProps.tileOne.bottom}
+                top={currentProps.tileOne.top}
+              />
             </TopLeftQuarter>
             <BottomLeftQuarter>
               {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}

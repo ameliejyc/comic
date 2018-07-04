@@ -61,13 +61,13 @@ export default class Layout extends Component {
       <FullScreenWrapper {...this.panResponder.panHandlers}>
         <AnimatedImageAndTextTile 
           tileAnimation='fadeInLeftBig'
-          delay={500}
-          imageUri={require('../../assets/flying-screen1.gif')}
+          delay={currentProps.tileOne.delay}
+          imageUri={currentProps.tileOne.backgroundImageUri}
           tapCount={this.state.tapCount}
           tapCountNumber={1}
-          text="I am screen number..."
-          position='absolute'
-          bottom={0}
+          text={currentProps.tileOne.text}
+          bottom={currentProps.tileOne.bottom}
+          top={currentProps.tileOne.top}
         />
         {this.state.tapCount >= 2 && this.displaySecondTile(currentProps)}
       </FullScreenWrapper>

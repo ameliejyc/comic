@@ -57,7 +57,8 @@ export default class LayoutTwo extends Component {
         tapCount={this.state.tapCount}
         tapCountNumber={3}
         text={currentProps.tileTwo.text}
-        bottom={0}
+        bottom={currentProps.tileTwo.bottom}
+        top={currentProps.tileTwo.top}
       />
     )
   }
@@ -86,7 +87,8 @@ export default class LayoutTwo extends Component {
               tapCount={this.state.tapCount}
               tapCountNumber={1}
               text={currentProps.tileOne.text}
-              bottom={0}
+              bottom={currentProps.tileOne.bottom}
+              top={currentProps.tileOne.top}
             />
             </VerticalHalfLeft>
           <VerticalHalfRight>
