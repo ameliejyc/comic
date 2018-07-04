@@ -66,11 +66,11 @@ export default class LayoutSix extends Component {
           <HorizontalHalfTop>
             <AnimatedImageAndTextTile
               tileAnimation="fadeInLeftBig"
-              delay={500}
-              imageUri={require('../../assets/flying-screen1.gif')}
+              delay={currentProps.tileOne.delay}
+              imageUri={currentProps.tileOne.backgroundImageUri}
               tapCount={this.state.tapCount}
               tapCountNumber={1}
-              text="I am screen number 6"
+              text={currentProps.tileOne.text}
               bottom={currentProps.tileOne.bottom}
               top={currentProps.tileOne.top}
             />

@@ -78,7 +78,7 @@ export default class LayoutEight extends Component {
             <TopLeftThird>
               <AnimatedImageAndTextTile
                 tileAnimation="fadeInLeftBig"
-                delay={200}
+                delay={currentProps.tileOne.delay}
                 imageUri={currentProps.tileOne.backgroundImageUri}
                 tapCount={this.state.tapCount}
                 tapCountNumber={1}
