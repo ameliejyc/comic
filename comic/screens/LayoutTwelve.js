@@ -61,16 +61,16 @@ export default class LayoutTwelve extends Component {
         text={currentProps.tileTwo.text}
         bottom={0}
         // first bubble props
-        textFirstBubble={currentProps.tileTwo.textFirstBubble}
+        textFirstBubble={currentProps.tileTwo.bubbleOne.text}
         tapCountNumberFirstBubble={6}
-        typeFirstBubble={currentProps.tileTwo.typeFirstBubble}
-        topFirstBubble={currentProps.tileTwo.topFirstBubble}
-        bottomFirstBubble={currentProps.tileTwo.bottomFirstBubble}
-        rightFirstBubble={currentProps.tileTwo.rightFirstBubble}
-        leftFirstBubble={currentProps.tileTwo.leftFirstBubble}
-        trianglePositionFirstBubble={currentProps.tileTwo.trianglePositionFirstBubble}
-        bubblesLayoutFirstBubble={currentProps.tileTwo.bubblesLayoutFirstBubble}
-        bubblesAlignmentFirstBubble={currentProps.tileTwo.bubblesAlignmentFirstBubble}
+        typeFirstBubble={currentProps.tileTwo.bubbleOne.type}
+        topFirstBubble={currentProps.tileTwo.bubbleOne.top}
+        bottomFirstBubble={currentProps.tileTwo.bubbleOne.bottom}
+        rightFirstBubble={currentProps.tileTwo.bubbleOne.right}
+        leftFirstBubble={currentProps.tileTwo.bubbleOne.left}
+        trianglePositionFirstBubble={currentProps.tileTwo.bubbleOne.trianglePosition}
+        bubblesLayoutFirstBubble={currentProps.tileTwo.bubbleOne.bubblesLayout}
+        bubblesAlignmentFirstBubble={currentProps.tileTwo.bubbleOne.bubblesAlignment}
       />
     )
   }
@@ -94,27 +94,27 @@ export default class LayoutTwelve extends Component {
               text={currentProps.tileOne.text}
               bottom={0}
               // first bubble props
-              textFirstBubble={currentProps.tileOne.textFirstBubble}
+              textFirstBubble={currentProps.tileOne.bubbleOne.text}
               tapCountNumberFirstBubble={2}
-              typeFirstBubble={currentProps.tileOne.typeFirstBubble}
-              topFirstBubble={currentProps.tileOne.topFirstBubble}
-              bottomFirstBubble={currentProps.tileOne.bottomFirstBubble}
-              leftFirstBubble={currentProps.tileOne.leftFirstBubble}
-              rightFirstBubble={currentProps.tileOne.rightFirstBubble}
-              trianglePositionFirstBubble={currentProps.tileOne.trianglePositionFirstBubble}
-              bubblesLayoutFirstBubble={currentProps.tileOne.bubblesLayoutFirstBubble}
-              bubblesAlignmentFirstBubble={currentProps.tileOne.bubblesAlignmentFirstBubble}
+              typeFirstBubble={currentProps.tileOne.bubbleOne.type}
+              topFirstBubble={currentProps.tileOne.bubbleOne.top}
+              bottomFirstBubble={currentProps.tileOne.bubbleOne.bottom}
+              leftFirstBubble={currentProps.tileOne.bubbleOne.left}
+              rightFirstBubble={currentProps.tileOne.bubbleOne.right}
+              trianglePositionFirstBubble={currentProps.tileOne.bubbleOne.trianglePosition}
+              bubblesLayoutFirstBubble={currentProps.tileOne.bubbleOne.bubblesLayout}
+              bubblesAlignmentFirstBubble={currentProps.tileOne.bubbleOne.bubblesAlignment}
               // second bubble props
-              textSecondBubble={currentProps.tileOne.textSecondBubble}
+              textSecondBubble={currentProps.tileOne.bubbleTwo.text}
               tapCountNumberSecondBubble={3}
-              typeSecondBubble={currentProps.tileOne.typeSecondBubble}
-              topSecondBubble={currentProps.tileOne.topSecondBubble}
-              bottomSecondBubble={currentProps.tileOne.bottomSecondBubble}
-              leftSecondBubble={currentProps.tileOne.leftSecondBubble}
-              rightSecondBubble={currentProps.tileOne.rightSecondBubble}
-              trianglePositionSecondBubble={currentProps.tileOne.trianglePositionSecondBubble}
-              bubblesLayoutSecondBubble={currentProps.tileOne.bubblesLayoutSecondBubble}
-              bubblesAlignmentSecondBubble={currentProps.tileOne.bubblesAlignmentSecondBubble}
+              typeSecondBubble={currentProps.tileOne.bubbleTwo.type}
+              topSecondBubble={currentProps.tileOne.bubbleTwo.top}
+              bottomSecondBubble={currentProps.tileOne.bubbleTwo.bottom}
+              leftSecondBubble={currentProps.tileOne.bubbleTwo.left}
+              rightSecondBubble={currentProps.tileOne.bubbleTwo.right}
+              trianglePositionSecondBubble={currentProps.tileOne.bubbleTwo.trianglePosition}
+              bubblesLayoutSecondBubble={currentProps.tileOne.bubbleTwo.bubblesLayout}
+              bubblesAlignmentSecondBubble={currentProps.tileOne.bubbleTwo.bubblesAlignment}
             />
           </HorizontalHalfTop>
           <HorizontalHalfBottom>
