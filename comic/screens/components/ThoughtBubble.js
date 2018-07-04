@@ -106,7 +106,7 @@ export default class ThoughtBubble extends Component {
 const styles = StyleSheet.create({
   bubble: {
     position: 'absolute',
-    maxWidth: '100%'
+    maxWidth: '100%',
   },
   text: {
     color: 'black',
@@ -120,24 +120,24 @@ const styles = StyleSheet.create({
   thoughtBubbleSquare: {
     borderRadius: 50,
     justifyContent: 'center',
-    backgroundColor: 'rgba(246, 246, 38, 0.7)'
+    backgroundColor: 'rgba(246, 246, 38, 0.7)',
   },
   thoughtBubbleCircleBig: {
     width: 10,
     height: 10,
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
-    borderWidth: 20,
+    borderWidth: 15,
     marginVertical: 5,
-    marginHorizontal: 50
+    marginHorizontal: 45
   },
   thoughtBubbleCircleSmall: {
     width: 10,
     height: 10,
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
-    borderWidth: 10,
-    marginHorizontal: 60
+    borderWidth: 8,
+    marginHorizontal: 52
   },
   thoughtBubbleCircleBigSide: {
     width: 10,
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
     borderWidth: 15,
-    marginVertical: 30,
+    marginVertical: 15,
     marginHorizontal: 5
   },
   thoughtBubbleCircleSmallSide: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: '50%',
     borderColor: 'rgba(246, 246, 38, 0.7)',
-    borderWidth: 10,
-    marginVertical: 35
+    borderWidth: 8,
+    marginVertical: 22
   }
 })

@@ -34,13 +34,13 @@ const bubbleScreens = {
     },
     tileTwo: {
       backgroundImageUri: require('../assets/desert-screen2-tile1.jpg'),
-      text: "Speech/thought layout 11",
-      textFirstBubble: 'I am thinking...',
-      textSecondBubble: 'This is for you, Night Zookeeper. This is for you, Night Zookeeper.',
+      // text: "Speech/thought layout 11",
+      textFirstBubble: 'I am thinking of an animal...',
+      textSecondBubble: 'This is for you, ',
       typeFirstBubble: 'thought',
-      bubblesLayoutFirstBubble: 'onTop',
+      bubblesLayoutFirstBubble: 'onBottom',
       bubblesAlignmentFirstBubble: 'right',
-      bottomFirstBubble: '40%',
+      topFirstBubble: 20,
       typeSecondBubble: 'speech',
       trianglePositionSecondBubble: 'TopRight',
       bottomSecondBubble: 20
