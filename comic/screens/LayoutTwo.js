@@ -52,7 +52,7 @@ export default class LayoutTwo extends Component {
         tileAnimation='fadeInLeftBig'
         beginTransitionAnimation={this.beginTransitionTileTwo}
         imageUri={currentProps.tileTwo.backgroundImageUri}
-        imageWidth={600}
+        imageWidth={this.props.screenProps.windowWidth/2 + 290}
         xPosition={this.state.xPositionTileTwo}
         tapCount={this.state.tapCount}
         tapCountNumber={3}

@@ -21,10 +21,12 @@ import storyOne from './comic/storyOne.js'
 import bubbleScreens from './comic/bubbleScreens.js'
 
 const windowWidth = Dimensions.get('window').width
+const windowHeight = Dimensions.get('window').height
 
 const screenProps = storyOne
 // const screenProps = bubbleScreens
 screenProps.windowWidth = windowWidth
+screenProps.windowHeight = windowHeight
 
 const ComicBook = createStackNavigator(
   {

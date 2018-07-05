@@ -68,7 +68,7 @@ export default class LayoutThree extends Component {
         tileAnimation='fadeInLeftBig'
         beginTransitionAnimation={ this.beginTransitionTileThree}
         imageUri={currentProps.tileThree.backgroundImageUri}
-        imageHeight={307}
+        imageHeight={this.props.screenProps.windowHeight/2 + 150}
         yPosition={this.state.yPositionTileThree}
         tapCount={this.state.tapCount}
         tapCountNumber={5}
