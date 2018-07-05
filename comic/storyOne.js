@@ -25,7 +25,18 @@ const storyOne = {
     tileThree: {
       backgroundImageUri: require('../assets/woods-screen2-tile3.jpg'),
       text: 'Home to many magical animals',
-      bottom: 0
+      bottom: 0,
+      characters: {
+        characterOne: {
+          imageUri: require('../assets/honey.png')
+        },
+        characterTwo: {
+          imageUri: require('../assets/honey.png')
+        },
+        characterThree: {
+          imageUri: require('../assets/honey.png')
+        }
+      }
     },
     nextScreen: 'ScreenThree'
   },

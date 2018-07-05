@@ -22,6 +22,49 @@ export default class AnimatedImageAndTextTile extends Component {
     bottom: PropTypes.number
   }
 
+  mapCharacters() {
+    const characters = this.props.characters
+    let delay = 0
+    let left = -10
+    return Object.keys(characters).map((each, index) => {
+      delay += 200
+      left += 20
+      return this.renderCharacter(characters, each, index, delay, left)
+    })
+  }
+
+  renderCharacter(characters, each, index, delay, left) {
+    return (
+      <Animatable.Image
+        key={index}
+        ref={this.handleCharacterRef}
+        source={characters[each].imageUri}
+        animation="bounceInUp"
+        duration={2000}
+        delay={delay}
+        style={{
+          height: 100,
+          width: 120,
+          position: 'absolute',
+          bottom: 20,
+          left: `${left}%`
+        }}
+        onAnimationEnd={this.characterAnimation}
+      />
+    )
+  }
+
+  handleCharacterRef = ref => (this.character = ref)
+
+  characterAnimation = endState => {
+    if (endState.finished) {
+      this.character
+        .bounce(1000)
+        .then(() => this.character.jello(1500))
+        .then(endState => console.log('Character animation finished'))
+    }
+  }
+
   render() {
     const {
       tileAnimation,
@@ -37,7 +80,9 @@ export default class AnimatedImageAndTextTile extends Component {
       top = null,
       bottom = null,
       imageHeight = null,
-      imageWidth = null
+      imageWidth = null,
+      characters = null,
+      startCharacterAnimation = false
     } = this.props
 
     return (
@@ -49,19 +94,18 @@ export default class AnimatedImageAndTextTile extends Component {
       >
         <Animated.Image
           source={imageUri}
-          style={[{ left: xPosition, top: yPosition, height: imageHeight ? imageHeight : '100%', width: imageWidth ? imageWidth : '100%' }]}
+          style={[
+            {
+              left: xPosition,
+              top: yPosition,
+              height: imageHeight ? imageHeight : '100%',
+              width: imageWidth ? imageWidth : '100%'
+            }
+          ]}
         />
-
-        {/* characters && <Animatable.Image source={require('../../../assets/animals-screen2-tile3.png')} animation='bounceInDown' style={{height: 150, width: 180}}/>*/}
-
+        {characters && startCharacterAnimation && this.mapCharacters()}
         {tapCount >= tapCountNumber &&
-          text && (
-            <TextBox
-              text={text}
-              top={top}
-              bottom={bottom}
-            />
-          )}
+          text && <TextBox text={text} top={top} bottom={bottom} />}
       </Animatable.View>
     )
   }

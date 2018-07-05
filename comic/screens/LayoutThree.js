@@ -13,7 +13,8 @@ export default class LayoutThree extends Component {
       tapCount: 0,
       xPositionTileOne: new Animated.Value(-150),
       xPositionTileTwo: new Animated.Value(-150),
-      yPositionTileThree: new Animated.Value(0)
+      yPositionTileThree: new Animated.Value(0),
+      startCharacterAnimation: false
     }
   }
 
@@ -74,6 +75,8 @@ export default class LayoutThree extends Component {
         text={currentProps.tileThree.text}
         bottom={currentProps.tileThree.bottom}
         top={currentProps.tileThree.top}
+        characters={currentProps.tileThree.characters}
+        startCharacterAnimation={this.state.startCharacterAnimation}
       />
     )
   }
@@ -100,8 +103,8 @@ export default class LayoutThree extends Component {
     if (endState.finished) {
       Animated.timing(this.state.yPositionTileThree, {
         toValue: -150,
-        duration: 3000,
-      }).start()
+        duration: 2000,
+      }).start(() => this.setState({startCharacterAnimation: true}))
     }
   }
 
@@ -114,19 +117,19 @@ export default class LayoutThree extends Component {
       <FullScreenWrapper {...this.panResponder.panHandlers}>
         <RowWrapper>
           <VerticalHalfLeft>
-          <AnimatedImageAndTextTile 
-            tileAnimation='fadeInLeftBig'
-            delay={currentProps.tileOne.delay}
-            beginTransitionAnimation={this.beginTransitionTileOne}
-            imageUri={currentProps.tileOne.backgroundImageUri}
-            imageWidth={600}
-            xPosition={this.state.xPositionTileOne}
-            tapCount={this.state.tapCount}
-            tapCountNumber={1}
-            text={currentProps.tileOne.text}
-            bottom={currentProps.tileOne.bottom}
-            top={currentProps.tileOne.top}
-          />
+            <AnimatedImageAndTextTile 
+              tileAnimation='fadeInLeftBig'
+              delay={currentProps.tileOne.delay}
+              beginTransitionAnimation={this.beginTransitionTileOne}
+              imageUri={currentProps.tileOne.backgroundImageUri}
+              imageWidth={600}
+              xPosition={this.state.xPositionTileOne}
+              tapCount={this.state.tapCount}
+              tapCountNumber={1}
+              text={currentProps.tileOne.text}
+              bottom={currentProps.tileOne.bottom}
+              top={currentProps.tileOne.top}
+            />
           </VerticalHalfLeft>
           <ColumnWrapper>
             <TopRightQuarter>
