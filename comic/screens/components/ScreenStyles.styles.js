@@ -1,9 +1,15 @@
 import styled, { css } from 'styled-components'
 import { Dimensions } from 'react-native'
 
-const windowHeight = Dimensions.get('window').height - 40
-const windowWidth = Dimensions.get('window').width - 40
+const windowHeight = Dimensions.get('window').height
+const windowWidth = Dimensions.get('window').width
 const deviceScale = Dimensions.get('window').scale
+const maxWidthMobile = 812
+
+// mobile aspect ratios are 16:9
+// tablet aspect ratios are 4:3
+const mobileAspectRatioHeightForTablet = (windowWidth / 16) * 9
+const tabletPaddingforMobileAspectRatio = (windowHeight - mobileAspectRatioHeightForTablet) / 2
 
 const commonStyles = css`
   flex: 1;
@@ -12,7 +18,7 @@ const commonStyles = css`
 // layout components
 export const FullScreenWrapper = styled.View`
   background-color: #341644;
-  padding: 20px;
+  padding: ${windowWidth > maxWidthMobile ? `${tabletPaddingforMobileAspectRatio}px 20px` : '20px'};
   flex: 1;
 `
 

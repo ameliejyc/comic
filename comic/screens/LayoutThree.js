@@ -51,7 +51,7 @@ export default class LayoutThree extends Component {
         tileAnimation='fadeInLeftBig'
         beginTransitionAnimation={ this.beginTransitionTileTwo}
         imageUri={currentProps.tileTwo.backgroundImageUri}
-        imageWidth={600}
+        imageWidth={this.props.screenProps.windowWidth/2 + 250}
         xPosition={this.state.xPositionTileTwo}
         tapCount={this.state.tapCount}
         tapCountNumber={3}
@@ -122,7 +122,7 @@ export default class LayoutThree extends Component {
               delay={currentProps.tileOne.delay}
               beginTransitionAnimation={this.beginTransitionTileOne}
               imageUri={currentProps.tileOne.backgroundImageUri}
-              imageWidth={600}
+              imageWidth={this.props.screenProps.windowWidth/2 + 250}
               xPosition={this.state.xPositionTileOne}
               tapCount={this.state.tapCount}
               tapCountNumber={1}

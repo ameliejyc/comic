@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from 'react-navigation'
+import { Dimensions } from 'react-native' 
 import { Font } from 'expo'
 import AnimationScreen from './AnimationScreen'
 import TodoScreen from './TodoScreen'
@@ -19,8 +20,11 @@ import LayoutTwelve from './comic/screens/LayoutTwelve'
 import storyOne from './comic/storyOne.js'
 import bubbleScreens from './comic/bubbleScreens.js'
 
-// const screenProps = storyOne
-const screenProps = bubbleScreens
+const windowWidth = Dimensions.get('window').width
+
+const screenProps = storyOne
+// const screenProps = bubbleScreens
+screenProps.windowWidth = windowWidth
 
 const ComicBook = createStackNavigator(
   {
@@ -34,16 +38,16 @@ const ComicBook = createStackNavigator(
     // Tappable: { screen: Tappable },
 
     // storyOne screens
-    // ScreenOne: { screen: LayoutOne },
-    // ScreenTwo: { screen: LayoutThree },
-    // ScreenThree: { screen: LayoutSeven },
-    // ScreenFour: { screen: LayoutTwo },
-    // ScreenFive: { screen: LayoutOne }
+    ScreenOne: { screen: LayoutOne },
+    ScreenTwo: { screen: LayoutThree },
+    ScreenThree: { screen: LayoutSeven },
+    ScreenFour: { screen: LayoutTwo },
+    ScreenFive: { screen: LayoutOne }
     
     // bubbleScreens
-    ScreenOne: { screen: LayoutTen },
-    ScreenTwo: { screen: LayoutEleven } ,
-    ScreenThree: { screen: LayoutTwelve } 
+    // ScreenOne: { screen: LayoutTen },
+    // ScreenTwo: { screen: LayoutEleven } ,
+    // ScreenThree: { screen: LayoutTwelve } 
   },
   {
     navigationOptions: {
