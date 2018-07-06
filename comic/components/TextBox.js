@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 import * as Animatable from 'react-native-animatable'
+import { base, text } from '../comicTheme'
 
 export default class TextBox extends Component {
   static propTypes = {
@@ -23,7 +24,7 @@ export default class TextBox extends Component {
 const styles = StyleSheet.create({
   textContainer: {
     position: 'absolute',
-    backgroundColor: '#56227f',
+    backgroundColor: base.narrationBackground,
     paddingVertical: 10,
     paddingHorizontal: 15,
     margin: 10,
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 0, width: 0 }
   },
   text: {
-    color: '#fff',
+    color: text.narration,
     fontSize: 17,
     lineHeight: 20,
     textAlign: 'center',

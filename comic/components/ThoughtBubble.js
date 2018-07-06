@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Text, StyleSheet, View, Animated } from 'react-native'
 import PropTypes from 'prop-types'
+import { base, text } from '../comicTheme'
 
 export default class ThoughtBubble extends Component {
   static propTypes = {
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
     maxWidth: '100%'
   },
   text: {
-    color: 'black',
+    color: text.character,
     fontSize: 17,
     lineHeight: 20,
     textAlign: 'center',
@@ -209,13 +210,13 @@ const styles = StyleSheet.create({
   thoughtBubbleSquare: {
     borderRadius: 50,
     justifyContent: 'center',
-    backgroundColor: 'rgba(246, 246, 38, 0.7)'
+    backgroundColor: base.thoughtBackground
   },
   thoughtBubbleCircleBig: {
     width: 10,
     height: 10,
     borderRadius: '50%',
-    borderColor: 'rgba(246, 246, 38, 0.7)',
+    borderColor: base.thoughtBackground,
     borderWidth: 15,
     marginVertical: 5,
     marginHorizontal: 45
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: '50%',
-    borderColor: 'rgba(246, 246, 38, 0.7)',
+    borderColor: base.thoughtBackground,
     borderWidth: 8,
     marginHorizontal: 52
   },
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: '50%',
-    borderColor: 'rgba(246, 246, 38, 0.7)',
+    borderColor: base.thoughtBackground,
     borderWidth: 15,
     marginVertical: 15,
     marginHorizontal: 5
@@ -241,7 +242,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: '50%',
-    borderColor: 'rgba(246, 246, 38, 0.7)',
+    borderColor: base.thoughtBackground,
     borderWidth: 8,
     marginVertical: 22
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 import * as Animatable from 'react-native-animatable'
+import { base, text } from '../comicTheme'
 
 export default class SpeechBubble extends Component {
   static propTypes = {
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   text: {
-    color: 'black',
+    color: text.character,
     fontSize: 17,
     lineHeight: 20,
     textAlign: 'center',
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     // height: '130%', // may be necessary to counteract the maxWidth on bubble when left or right triangles
     borderRadius: 20,
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: base.speechBackground,
   },
   speechBubbleTriangleLeft: {
     position: 'absolute',
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 13,
     borderTopColor: 'transparent',
     borderRightWidth: 26,
-    borderRightColor: 'rgba(255, 255, 255, 0.8)',
+    borderRightColor: base.speechBackground,
     borderBottomWidth: 13,
     borderBottomColor: 'transparent'
   },
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 13,
     borderTopColor: 'transparent',
     borderLeftWidth: 26,
-    borderLeftColor: 'rgba(255, 255, 255, 0.8)',
+    borderLeftColor: base.speechBackground,
     borderBottomWidth: 13,
     borderBottomColor: 'transparent'
   },
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderTopWidth: 26,
-    borderTopColor: 'rgba(255, 255, 255, 0.8)',
+    borderTopColor: base.speechBackground,
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderTopWidth: 26,
-    borderTopColor: 'rgba(255, 255, 255, 0.8)',
+    borderTopColor: base.speechBackground,
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderBottomWidth: 26,
-    borderBottomColor: 'rgba(255, 255, 255, 0.8)',
+    borderBottomColor: base.speechBackground,
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderBottomWidth: 26,
-    borderBottomColor: 'rgba(255, 255, 255, 0.8)',
+    borderBottomColor: base.speechBackground,
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderTopWidth: 26,
-    borderTopColor: 'rgba(255, 255, 255, 0.8)',
+    borderTopColor: base.speechBackground,
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
     borderBottomWidth: 26,
-    borderBottomColor: 'rgba(255, 255, 255, 0.8)',
+    borderBottomColor: base.speechBackground,
     borderRightWidth: 26,
     borderRightColor: 'transparent',
     borderLeftWidth: 26,

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Dimensions } from 'react-native'
+import { base } from '../comicTheme'
 
 const windowHeight = Dimensions.get('window').height
 const windowWidth = Dimensions.get('window').width
@@ -15,9 +16,9 @@ const commonStyles = css`
   flex: 1;
   overflow: hidden;
 `
-// layout components
+
 export const FullScreenWrapper = styled.View`
-  background-color: #341644;
+  background-color: ${base.background};
   padding: ${windowWidth > maxWidthMobile ? `${tabletPaddingforMobileAspectRatio}px 20px` : '20px'};
   flex: 1;
 `
@@ -35,13 +36,13 @@ export const ColumnWrapper = styled.View`
 export const VerticalHalfLeft = styled.View`
   margin-right: 10px;
   ${commonStyles};
-  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 0 ${base.shadow};
 `
 
 export const VerticalHalfRight = styled.View`
   margin-left: 10px;
   ${commonStyles};
-  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 0 ${base.shadow};
 `
 
 export const HorizontalHalfTop= styled.View`
@@ -119,28 +120,4 @@ export const TopRightThird = styled.View`
   ${commonStyles};
 `
 
-// individual component styles
-export const SpeechBubbleSquare = styled.View`
-  // display: flex;
-  // width: 50%;
-  // height: 50%;
-  // padding: 10px;
-  // justify-content: center;
-  // background-color: 'pink';
-  // border-radius: 20px;
-`
-
-export const SpeechBubbleTriangle = styled.View`
-  // position: 'absolute';
-  // left: -26px;
-  // top: 26px;
-  // width: 0;
-  // height: 0;
-  // border-top-color: 'transparent';
-  // border-top-width: 13px;
-  // border-right-width: 26px;
-  // border-right-color: 'red';
-  // border-bottom-width: 13px;
-  // border-bottom-color: 'transparent'
-`
 
