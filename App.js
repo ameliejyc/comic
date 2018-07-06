@@ -2,14 +2,6 @@ import React, { Component } from 'react'
 import { createStackNavigator } from 'react-navigation'
 import { Dimensions } from 'react-native' 
 import { Font } from 'expo'
-import AnimationScreen from './AnimationScreen'
-import TodoScreen from './TodoScreen'
-import GestureContainer from './GestureContainer'
-import ScrollScreen from './ScrollScreen'
-import ImageReveal from './ImageReveal'
-import Interpolation from './Interpolation'
-import SlideOne from './SlideOne'
-import Tappable from './Tappable'
 import LayoutOne from './comic/screens/LayoutOne'
 import LayoutTwo from './comic/screens/LayoutTwo'
 import LayoutThree from './comic/screens/LayoutThree'
@@ -17,28 +9,17 @@ import LayoutSeven from './comic/screens/LayoutSeven'
 import LayoutTen from './comic/screens/LayoutTen'
 import LayoutEleven from './comic/screens/LayoutEleven'
 import LayoutTwelve from './comic/screens/LayoutTwelve'
-import storyOne from './comic/storyOne.js'
-import bubbleScreens from './comic/bubbleScreens.js'
 
-const windowWidth = Dimensions.get('window').width
-const windowHeight = Dimensions.get('window').height
+import storyOne from './comic/data/storyOne'
+import bubbleScreens from './comic/data/bubbleScreens'
 
 const screenProps = storyOne
 // const screenProps = bubbleScreens
-screenProps.windowWidth = windowWidth
-screenProps.windowHeight = windowHeight
+
+let { width, height } = Dimensions.get('window')
 
 const ComicBook = createStackNavigator(
   {
-    // Todo: { screen: TodoScreen },
-    // Animation: { screen: AnimationScreen },
-    // Gesture: { screen: GestureContainer },
-    // Scroll: { screen: ScrollScreen },
-    // ImageReveal: { screen: ImageReveal },
-    // Interpolation: { screen: Interpolation},
-    // SlideOne: { screen: SlideOne },
-    // Tappable: { screen: Tappable },
-
     // storyOne screens
     ScreenOne: { screen: LayoutOne },
     ScreenTwo: { screen: LayoutThree },
@@ -65,15 +46,30 @@ const ComicBook = createStackNavigator(
 )
 
 export default class App extends Component {
-  state = {
-    assetsLoaded: false
+  constructor() {
+    super()
+
+    this.state = {
+      windowWidth: width,
+      windowHeight: height,
+      assetsLoaded: false
+    }
+    
+    Dimensions.addEventListener('change', () => {
+      this.setState({
+        windowWidth: Dimensions.get('window').width,
+        windowHeight: Dimensions.get('window').height
+      })
+      screenProps.windowWidth = this.state.windowWidth
+      screenProps.windowHeight = this.state.windowHeight
+    })
   }
 
   async componentDidMount() {
     try {
       await Font.loadAsync({
-        oldrichium: require('./assets/fonts/Oldrichium.otf'),
-        oldrichiumBold: require('./assets/fonts/OldrichiumBold.otf')
+        oldrichium: require('./comic/assets/fonts/Oldrichium.otf'),
+        oldrichiumBold: require('./comic/assets/fonts/OldrichiumBold.otf')
       })
     } catch (e) {
       console.warn(

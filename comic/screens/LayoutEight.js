@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { PanResponder } from 'react-native'
-import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
+import AnimatedImageAndTextTile from '../components/AnimatedImageAndTextTile'
 import {
   FullScreenWrapper,
   ColumnWrapper,
@@ -10,7 +10,7 @@ import {
   TopLeftThird,
   TopMiddleThird,
   TopRightThird
-} from './components/ScreenStyles.styles'
+} from '../components/ScreenStyles.styles'
 
 export default class LayoutEight extends Component {
   static propTypes = {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { PanResponder, Animated } from 'react-native'
-import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
-import { FullScreenWrapper, RowWrapper, VerticalHalfLeft, VerticalHalfRight } from './components/ScreenStyles.styles'
+import AnimatedImageAndTextTile from '../components/AnimatedImageAndTextTile'
+import { FullScreenWrapper, RowWrapper, VerticalHalfLeft, VerticalHalfRight } from '../components/ScreenStyles.styles'
 
 export default class LayoutTwo extends Component {
   static propTypes = {

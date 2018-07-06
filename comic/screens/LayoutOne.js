@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import {
   PanResponder
 } from 'react-native'
-import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
-import { FullScreenWrapper } from './components/ScreenStyles.styles'
+import AnimatedImageAndTextTile from '../components/AnimatedImageAndTextTile'
+import { FullScreenWrapper } from '../components/ScreenStyles.styles'
 
 export default class LayoutOne extends Component {
   constructor(props) {

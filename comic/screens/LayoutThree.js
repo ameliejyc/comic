@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, PanResponder, Animated } from 'react-native'
-import { FullScreenWrapper, RowWrapper, ColumnWrapper, VerticalHalfLeft, TopRightQuarter, BottomRightQuarter } from './components/ScreenStyles.styles'
+import { FullScreenWrapper, RowWrapper, ColumnWrapper, VerticalHalfLeft, TopRightQuarter, BottomRightQuarter } from '../components/ScreenStyles.styles'
 
-import AnimatedImageAndTextTile from './components/AnimatedImageAndTextTile'
+import AnimatedImageAndTextTile from '../components/AnimatedImageAndTextTile'
 
 export default class LayoutThree extends Component {
   constructor(props) {

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { PanResponder } from 'react-native'
-import AnimatedImageAndSpeechTile from './components/AnimatedImageAndSpeechTile'
+import AnimatedImageAndSpeechTile from '../components/AnimatedImageAndSpeechTile'
 import {
   FullScreenWrapper,
   ColumnWrapper,
   HorizontalHalfTop,
   HorizontalHalfBottom
-} from './components/ScreenStyles.styles'
+} from '../components/ScreenStyles.styles'
 
 export default class LayoutTwelve extends Component {
   static propTypes = {
